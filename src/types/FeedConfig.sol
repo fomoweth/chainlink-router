@@ -8,15 +8,13 @@ using FeedConfigLibrary for FeedConfig global;
 
 /// @notice Packs multiple feed-related parameters into a single FeedConfig
 /// @dev Bit layout structure:
-/// - [255:216] zero-bits (40 bits)		- Unused zero-bits to match a total uint256
-/// - [215:208] quoteDecimals (8 bits)	- Decimal places of quote currency
-/// - [207:192] quoteId (16 bits)		- Quote currency identifier
-/// - [191:184] baseDecimals (8 bits)	- Decimal places of base currency
-/// - [183:168] baseId (16 bits)		- Base currency identifier
-/// - [167:160] feedDecimals (8 bits)	- Decimal places of feed itself
-/// - [159:0]   feed (160 bits)			- Feed contract address
+/// 	 - [255:192]: zero-bits (64 bits)		Unused zero-bits to match a total uint256
+/// 	 - [191:184]: quoteDecimals (8 bits)	Decimal places of quote currency
+/// 	 - [183:176]: quoteId (8 bits)			Quote currency identifier
+/// 	 - [175:168]: baseDecimals (8 bits)		Decimal places of base currency
+/// 	 - [167:160]: baseId (8 bits)			Base currency identifier
+/// 	 - [159:0]:	  feed (160 bits)			Feed contract address
 /// @param feed Address of the price feed contract
-/// @param feedDecimals Number of decimal places in the feed's returned price
 /// @param baseId Unique identifier for the base asset
 /// @param baseDecimals Number of decimal places for the base asset
 /// @param quoteId Unique identifier for the quote asset
@@ -24,19 +22,18 @@ using FeedConfigLibrary for FeedConfig global;
 /// @return configuration FeedConfig with all information packed
 function toFeedConfig(
 	address feed,
-	uint8 feedDecimals,
-	uint16 baseId,
+	uint8 baseId,
 	uint8 baseDecimals,
-	uint16 quoteId,
+	uint8 quoteId,
 	uint8 quoteDecimals
 ) pure returns (FeedConfig configuration) {
 	assembly ("memory-safe") {
 		configuration := or(
 			or(
-				or(shl(208, and(0xff, quoteDecimals)), shl(192, and(0xffff, quoteId))),
-				or(shl(184, and(0xff, baseDecimals)), shl(168, and(0xffff, baseId)))
+				or(shl(184, and(0xff, quoteDecimals)), shl(176, and(0xff, quoteId))),
+				or(shl(168, and(0xff, baseDecimals)), shl(160, and(0xff, baseId)))
 			),
-			or(shl(160, and(0xff, feedDecimals)), and(0xffffffffffffffffffffffffffffffffffffffff, feed))
+			and(0xffffffffffffffffffffffffffffffffffffffff, feed)
 		)
 	}
 }
@@ -114,21 +111,12 @@ library FeedConfigLibrary {
 		}
 	}
 
-	/// @notice Extracts feed decimal places from bits 160-167
-	/// @param self Target FeedConfig
-	/// @return result Number of decimal places for the feed
-	function feedDecimals(FeedConfig self) internal pure returns (uint8 result) {
-		assembly ("memory-safe") {
-			result := and(0xff, shr(160, self))
-		}
-	}
-
 	/// @notice Extracts base asset ID from bits 168-183
 	/// @param self Target FeedConfig
 	/// @return result Unique identifier of the base asset
-	function baseId(FeedConfig self) internal pure returns (uint16 result) {
+	function baseId(FeedConfig self) internal pure returns (uint8 result) {
 		assembly ("memory-safe") {
-			result := and(0xffff, shr(168, self))
+			result := and(0xff, shr(160, self))
 		}
 	}
 
@@ -137,16 +125,16 @@ library FeedConfigLibrary {
 	/// @return result Number of decimal places for the base asset
 	function baseDecimals(FeedConfig self) internal pure returns (uint8 result) {
 		assembly ("memory-safe") {
-			result := and(0xff, shr(184, self))
+			result := and(0xff, shr(168, self))
 		}
 	}
 
 	/// @notice Extracts quote asset ID from bits 192-207
 	/// @param self Target FeedConfig
 	/// @return result Unique identifier of the quote asset
-	function quoteId(FeedConfig self) internal pure returns (uint16 result) {
+	function quoteId(FeedConfig self) internal pure returns (uint8 result) {
 		assembly ("memory-safe") {
-			result := and(0xffff, shr(192, self))
+			result := and(0xff, shr(176, self))
 		}
 	}
 
@@ -155,7 +143,7 @@ library FeedConfigLibrary {
 	/// @return result Number of decimal places for the quote asset
 	function quoteDecimals(FeedConfig self) internal pure returns (uint8 result) {
 		assembly ("memory-safe") {
-			result := and(0xff, shr(208, self))
+			result := and(0xff, shr(184, self))
 		}
 	}
 
