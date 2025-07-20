@@ -4,3 +4,6 @@
 [submodule "lib/proxy-forge"]
 	path = lib/proxy-forge
 	url = https://github.com/fomoweth/proxy-forge
+[submodule "lib/openzeppelin-contracts"]
+	path = lib/openzeppelin-contracts
+	url = https://github.com/openzeppelin/openzeppelin-contracts
