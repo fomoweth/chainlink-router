@@ -71,7 +71,7 @@ contract ChainlinkRouterTest is Test {
 	}
 
 	function setUp() public {
-		vm.createSelectFork("ethereum", ETHEREUM_FORK_BLOCK);
+		vm.createSelectFork(vm.envOr("RPC_ETHEREUM", getChain(1).rpcUrl), ETHEREUM_FORK_BLOCK);
 
 		bytes memory params = abi.encodePacked(
 			admin,
