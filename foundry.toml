@@ -14,7 +14,6 @@ optimizer_runs = 1000000
 via_ir = true
 
 fs_permissions = [
-    { access = "read", path = "./config"},
     { access = "read-write", path = "./deployments"},
     { access = "read", path = "./out"},
 	{ access = "read", path = "./script" },
@@ -32,35 +31,23 @@ ethereum = "${RPC_ETHEREUM}"
 sepolia = "${RPC_SEPOLIA}"
 optimism = "${RPC_OPTIMISM}"
 optimism-sepolia = "${RPC_OPTIMISM_SEPOLIA}"
-bnb = "${RPC_BNB}"
-bnb-testnet = "${RPC_BNB_TESTNET}"
-unichain = "${RPC_UNICHAIN}"
-unichain-sepolia = "${RPC_UNICHAIN_SEPOLIA}"
 polygon = "${RPC_POLYGON}"
 polygon-amoy = "${RPC_POLYGON_AMOY}"
 base = "${RPC_BASE}"
 base-sepolia = "${RPC_BASE_SEPOLIA}"
 arbitrum = "${RPC_ARBITRUM}"
 arbitrum-sepolia = "${RPC_ARBITRUM_SEPOLIA}"
-avalanche = "${RPC_AVALANCHE}"
-avalanche-fuji = "${RPC_AVALANCHE_FUJI}"
 
 [etherscan]
 ethereum = { key = "${ETHERSCAN_API_KEY}", chainId = 1 }
 sepolia = { key = "${ETHERSCAN_API_KEY}", chainId = 11155111 }
 optimism = { key = "${ETHERSCAN_API_KEY}", chainId = 10 }
 optimism-sepolia = { key = "${ETHERSCAN_API_KEY}", chainId = 11155420 }
-bnb = { key = "${ETHERSCAN_API_KEY}", chainId = 56 }
-bnb-testnet = { key = "${ETHERSCAN_API_KEY}", chainId = 97 }
-unichain = { key = "${ETHERSCAN_API_KEY}", chainId = 130 }
-unichain-sepolia = { key = "${ETHERSCAN_API_KEY}", chainId = 1301 }
 polygon = { key = "${ETHERSCAN_API_KEY}", chainId = 137 }
 polygon-amoy = { key = "${ETHERSCAN_API_KEY}", chainId = 80002 }
 base = { key = "${ETHERSCAN_API_KEY}", chainId = 8453 }
 base-sepolia = { key = "${ETHERSCAN_API_KEY}", chainId = 84532 }
 arbitrum = { key = "${ETHERSCAN_API_KEY}", chainId = 42161 }
 arbitrum-sepolia = { key = "${ETHERSCAN_API_KEY}", chainId = 421614 }
-avalanche = { key = "${ETHERSCAN_API_KEY}", chainId = 43114 }
-avalanche-fuji = { key = "${ETHERSCAN_API_KEY}", chainId = 43113 }
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
