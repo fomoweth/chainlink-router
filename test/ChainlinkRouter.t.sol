@@ -238,7 +238,7 @@ contract ChainlinkRouterTest is Test, BaseTest {
 			uint256 initialCount = router.numAssets();
 			assertEq(initialCount, 1);
 
-			bytes memory params = runScript("extract-feeds", vm.toString(chainIds[i]));
+			bytes memory params = runScript("extract", vm.toString(chainIds[i]));
 			router.register(params);
 
 			assertGt(router.numAssets(), initialCount);
