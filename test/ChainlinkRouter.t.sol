@@ -5,60 +5,23 @@ import {Test} from "forge-std/Test.sol";
 import {Vm} from "forge-std/Vm.sol";
 import {AggregatorInterface} from "src/interfaces/external/AggregatorInterface.sol";
 import {ChainlinkRouter, IChainlinkRouter} from "src/ChainlinkRouter.sol";
+import {Denominations} from "src/libraries/Denominations.sol";
 import {PriceMath} from "src/libraries/PriceMath.sol";
 import {BitMap} from "src/types/BitMap.sol";
 import {Initializable} from "src/base/Initializable.sol";
 import {Ownable} from "src/base/Ownable.sol";
 import {FeedConfig} from "src/types/FeedConfig.sol";
+import {Constants} from "test/shared/Constants.sol";
 import {ProxyHelpers} from "test/shared/ProxyHelpers.sol";
 import {SolArray} from "test/shared/SolArray.sol";
 
-contract ChainlinkRouterTest is Test {
+contract ChainlinkRouterTest is Test, Constants {
+	using Denominations for address;
 	using ProxyHelpers for Vm;
-
-	bytes32 internal constant INITIALIZED_SLOT = 0xeb0c2ce5f191d27e756051385ba4f8f2e0c18127de8ff7207a5891e3b49bb400;
 
 	uint256 internal constant ETHEREUM_FORK_BLOCK = 22962547;
 
-	address internal constant ETH = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;
-	address internal constant BTC = 0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB;
-	address internal constant USD = 0x0000000000000000000000000000000000000348;
-
-	address internal constant WETH = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
-	address internal constant ETH_BTC = 0xAc559F25B1619171CbC396a50854A3240b6A4e99;
-	address internal constant ETH_USD = 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419;
-
-	address internal constant WBTC = 0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599;
-	address internal constant BTC_ETH = 0xdeb288F737066589598e9214E782fa5A8eD689e8;
-	address internal constant BTC_USD = 0x4a3411ac2948B33c69666B35cc6d055B27Ea84f1;
-
-	address internal constant USDC = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
-	address internal constant USDC_ETH = 0x986b5E1e1755e3C2440e960477f25201B0a8bbD4;
-	address internal constant USDC_USD = 0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6;
-
-	address internal constant USDT = 0xdAC17F958D2ee523a2206206994597C13D831ec7;
-	address internal constant USDT_ETH = 0xEe9F2375b4bdF6387aa8265dD4FB8F16512A1d46;
-	address internal constant USDT_USD = 0x3E7d1eAB13ad0104d2750B8863b489D65364e32D;
-
-	address internal constant AAVE = 0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9;
-	address internal constant AAVE_ETH = 0x6Df09E975c830ECae5bd4eD9d90f3A95a4f88012;
-	address internal constant AAVE_USD = 0x547a514d5e3769680Ce22B2361c10Ea13619e8a9;
-
-	address internal constant COMP = 0xc00e94Cb662C3520282E6f5717214004A7f26888;
-	address internal constant COMP_ETH = 0x1B39Ee86Ec5979ba5C322b826B3ECb8C79991699;
-	address internal constant COMP_USD = 0xdbd020CAeF83eFd542f4De03e3cF0C28A4428bd5;
-
-	address internal constant LINK = 0x514910771AF9Ca656af840dff83E8264EcF986CA;
-	address internal constant LINK_ETH = 0xDC530D9457755926550b59e8ECcdaE7624181557;
-	address internal constant LINK_USD = 0xC7e9b623ed51F033b32AE7f1282b1AD62C28C183;
-
-	address internal constant UNI = 0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984;
-	address internal constant UNI_ETH = 0xD6aA3D25116d8dA79Ea0246c4826EB951872e02e;
-	address internal constant UNI_USD = 0x553303d460EE0afB37EdFf9bE42922D8FF63220e;
-
-	address internal immutable admin = makeAddr("Admin");
 	address internal immutable unknown = makeAddr("Unknown");
-	address internal immutable proxyOwner = makeAddr("ChainlinkRouter ProxyOwner");
 
 	ChainlinkRouter internal logic;
 	ChainlinkRouter internal router;
@@ -71,25 +34,11 @@ contract ChainlinkRouterTest is Test {
 	}
 
 	function setUp() public {
-		vm.createSelectFork(vm.envOr("RPC_ETHEREUM", getChain(1).rpcUrl), ETHEREUM_FORK_BLOCK);
+		vm.createSelectFork("ethereum", ETHEREUM_FORK_BLOCK);
 
-		bytes memory params = abi.encodePacked(
-			admin,
-			ETH_USD,
-			WETH,
-			USD,
-			BTC_USD,
-			WBTC,
-			USD,
-			USDC_USD,
-			USDC,
-			USD,
-			USDT_USD,
-			USDT,
-			USD
-		);
+		bytes memory data = abi.encodeCall(ChainlinkRouter.initialize, (address(this)));
 
-		bytes memory data = abi.encodeCall(ChainlinkRouter.initialize, (params));
+		address proxyOwner = makeAddr("ChainlinkRouter ProxyOwner");
 
 		logic = new ChainlinkRouter();
 
@@ -104,6 +53,23 @@ contract ChainlinkRouterTest is Test {
 		vm.label(address(logic), "ChainlinkRouter Logic");
 		vm.label(address(router), "ChainlinkRouter Proxy");
 		vm.label(proxyAdmin, "ChainlinkRouter ProxyAdmin");
+
+		bytes memory params = abi.encodePacked(
+			ETH_USD,
+			WETH,
+			USD,
+			BTC_USD,
+			WBTC,
+			USD,
+			USDC_USD,
+			USDC,
+			USD,
+			USDT_USD,
+			USDT,
+			USD
+		);
+
+		router.register(params);
 	}
 
 	function test_constructor() public view {
@@ -113,7 +79,7 @@ contract ChainlinkRouterTest is Test {
 	}
 
 	function test_initialize() public view {
-		assertEq(router.owner(), admin);
+		assertEq(router.owner(), address(this));
 		assertEq(router.numAssets(), 5);
 		assertEq(router.getAssetId(USD), 0);
 		assertEq(router.getAsset(0), USD);
@@ -130,10 +96,10 @@ contract ChainlinkRouterTest is Test {
 
 	function test_initialize_revertsOnReinitialization() public {
 		vm.expectRevert(Initializable.InvalidInitialization.selector);
-		router.initialize(abi.encodePacked(admin));
+		router.initialize(address(this));
 	}
 
-	function test_registerAsset() public impersonate(admin) {
+	function test_registerAsset() public {
 		uint256 initialCount = router.numAssets();
 
 		vm.expectEmit(true, true, true, true, address(router));
@@ -149,7 +115,7 @@ contract ChainlinkRouterTest is Test {
 		router.registerAsset(LINK);
 	}
 
-	function test_registerAsset_revertsOnExceededMaxAssets() public impersonate(admin) {
+	function test_registerAsset_revertsOnExceededMaxAssets() public {
 		vm.expectEmit(true, true, true, true, address(router));
 
 		for (uint256 i = router.numAssets(); i < 256; ++i) {
@@ -162,7 +128,7 @@ contract ChainlinkRouterTest is Test {
 		router.registerAsset(LINK);
 	}
 
-	function test_registerAsset_revertsOnInvalidAsset() public impersonate(admin) {
+	function test_registerAsset_revertsOnInvalidAsset() public {
 		vm.expectRevert(IChainlinkRouter.InvalidAsset.selector);
 		router.registerAsset(address(0));
 	}
@@ -172,7 +138,7 @@ contract ChainlinkRouterTest is Test {
 		router.registerAsset(LINK);
 	}
 
-	function test_deregisterAsset() public impersonate(admin) {
+	function test_deregisterAsset() public {
 		vm.expectRevert(abi.encodeWithSelector(IChainlinkRouter.AssetNotExists.selector, LINK));
 		router.deregisterAsset(LINK);
 
@@ -191,7 +157,7 @@ contract ChainlinkRouterTest is Test {
 		assertEq(router.numAssets(), initialCount - 1);
 	}
 
-	function test_deregisterAsset_revertsOnInvalidAsset() public impersonate(admin) {
+	function test_deregisterAsset_revertsOnInvalidAsset() public {
 		vm.expectRevert(IChainlinkRouter.InvalidAsset.selector);
 		router.deregisterAsset(address(0));
 
@@ -204,12 +170,12 @@ contract ChainlinkRouterTest is Test {
 		router.deregisterAsset(LINK);
 	}
 
-	function test_register() public impersonate(admin) {
+	function test_register() public {
 		uint256 initialCount = router.numAssets();
 
 		vm.expectEmit(true, true, true, true, address(router));
 		emit IChainlinkRouter.AssetAdded(LINK, initialCount);
-		emit IChainlinkRouter.FeedAdded(LINK_ETH, LINK, WETH);
+		emit IChainlinkRouter.FeedRegistered(LINK_ETH, LINK, WETH);
 
 		router.register(abi.encodePacked(LINK_ETH, LINK, WETH));
 
@@ -217,7 +183,7 @@ contract ChainlinkRouterTest is Test {
 		assertEq(router.getAsset(initialCount), LINK);
 		assertEq(router.getFeed(LINK, WETH), LINK_ETH);
 
-		emit IChainlinkRouter.FeedAdded(LINK_USD, LINK, USD);
+		emit IChainlinkRouter.FeedRegistered(LINK_USD, LINK, USD);
 
 		router.register(abi.encodePacked(LINK_USD, LINK, USD));
 
@@ -225,9 +191,8 @@ contract ChainlinkRouterTest is Test {
 		assertEq(router.numAssets(), initialCount + 1);
 	}
 
-	function test_register_multipleFeeds() public impersonate(admin) {
+	function test_register_multipleFeeds() public {
 		address[] memory feeds = SolArray.addresses(AAVE_ETH, COMP_ETH, LINK_ETH, UNI_ETH);
-
 		address[] memory assets = SolArray.addresses(AAVE, COMP, LINK, UNI);
 
 		uint256 initialCount = router.numAssets();
@@ -236,7 +201,7 @@ contract ChainlinkRouterTest is Test {
 
 		bytes memory params;
 		for (uint256 i; i < feeds.length; ++i) {
-			emit IChainlinkRouter.FeedAdded(feeds[i], assets[i], WETH);
+			emit IChainlinkRouter.FeedRegistered(feeds[i], assets[i], WETH);
 			params = abi.encodePacked(params, feeds[i], assets[i], WETH);
 		}
 
@@ -249,12 +214,12 @@ contract ChainlinkRouterTest is Test {
 		assertEq(router.numAssets(), initialCount + assets.length);
 	}
 
-	function test_register_revertsOnInvalidFeed() public impersonate(admin) {
+	function test_register_revertsOnInvalidFeed() public {
 		vm.expectRevert(IChainlinkRouter.InvalidFeed.selector);
 		router.register(abi.encodePacked(address(0), LINK, WETH));
 	}
 
-	function test_register_revertsOnIdenticalAssets() public impersonate(admin) {
+	function test_register_revertsOnIdenticalAssets() public {
 		vm.expectRevert(IChainlinkRouter.IdenticalAssets.selector);
 		router.register(abi.encodePacked(LINK_ETH, LINK, LINK));
 	}
@@ -264,14 +229,14 @@ contract ChainlinkRouterTest is Test {
 		router.register(abi.encodePacked(LINK_ETH, LINK, WETH, LINK_USD, LINK, USD));
 	}
 
-	function test_deregister() public impersonate(admin) {
+	function test_deregister() public {
 		router.register(abi.encodePacked(LINK_ETH, LINK, WETH, LINK_USD, LINK, USD));
 
 		uint256 initialCount = router.numAssets();
 		uint256 assetId = router.getAssetId(LINK);
 
 		vm.expectEmit(true, true, true, true, address(router));
-		emit IChainlinkRouter.FeedRemoved(LINK, WETH);
+		emit IChainlinkRouter.FeedDeregistered(LINK, WETH);
 
 		router.deregister(abi.encodePacked(LINK, WETH));
 
@@ -280,7 +245,7 @@ contract ChainlinkRouterTest is Test {
 		assertEq(router.getFeed(LINK, WETH), address(0));
 
 		emit IChainlinkRouter.AssetRemoved(LINK, router.getAssetId(LINK));
-		emit IChainlinkRouter.FeedRemoved(LINK, USD);
+		emit IChainlinkRouter.FeedDeregistered(LINK, USD);
 
 		router.deregister(abi.encodePacked(LINK, USD));
 
@@ -290,9 +255,8 @@ contract ChainlinkRouterTest is Test {
 		assertEq(router.numAssets(), initialCount - 1);
 	}
 
-	function test_deregister_multipleFeeds() public impersonate(admin) {
+	function test_deregister_multipleFeeds() public {
 		address[] memory feeds = SolArray.addresses(AAVE_ETH, COMP_ETH, LINK_ETH, UNI_ETH);
-
 		address[] memory assets = SolArray.addresses(AAVE, COMP, LINK, UNI);
 
 		bytes memory params;
@@ -308,7 +272,7 @@ contract ChainlinkRouterTest is Test {
 
 		params = "";
 		for (uint256 i; i < assets.length; ++i) {
-			emit IChainlinkRouter.FeedRemoved(assets[i], WETH);
+			emit IChainlinkRouter.FeedDeregistered(assets[i], WETH);
 			params = abi.encodePacked(params, assets[i], WETH);
 		}
 
@@ -321,7 +285,7 @@ contract ChainlinkRouterTest is Test {
 		assertEq(router.numAssets(), initialCount - assets.length);
 	}
 
-	function test_deregister_revertsOnIdenticalAssets() public impersonate(admin) {
+	function test_deregister_revertsOnIdenticalAssets() public {
 		vm.expectRevert(IChainlinkRouter.IdenticalAssets.selector);
 		router.deregister(abi.encodePacked(LINK, LINK));
 	}
@@ -333,7 +297,7 @@ contract ChainlinkRouterTest is Test {
 
 	function test_getAssetConfiguration() public view {
 		BitMap configuration = router.getAssetConfiguration(USD);
-		assertTrue(!configuration.isZero());
+		assertFalse(configuration.isZero());
 		assertTrue(configuration.get(router.getAssetId(WETH)));
 		assertTrue(configuration.get(router.getAssetId(WBTC)));
 		assertTrue(configuration.get(router.getAssetId(USDC)));
@@ -341,13 +305,19 @@ contract ChainlinkRouterTest is Test {
 	}
 
 	function test_getFeedConfiguration() public view {
-		FeedConfig configuration = router.getFeedConfiguration(WETH, USD);
-		assertTrue(!configuration.isZero());
-		assertEq(configuration.feed(), ETH_USD);
-		assertEq(configuration.baseId(), router.getAssetId(WETH));
-		assertEq(configuration.baseDecimals(), 18);
-		assertEq(configuration.quoteId(), router.getAssetId(USD));
-		assertEq(configuration.quoteDecimals(), 8);
+		address[] memory feeds = SolArray.addresses(ETH_USD, BTC_USD, USDC_USD, USDT_USD);
+		address[] memory assets = SolArray.addresses(WETH, WBTC, USDC, USDT);
+
+		for (uint256 i; i < feeds.length; ++i) {
+			FeedConfig configuration = router.getFeedConfiguration(assets[i], USD);
+			assertFalse(configuration.isZero());
+			assertEq(configuration.feed(), feeds[i]);
+			assertEq(configuration.baseId(), router.getAssetId(assets[i]));
+			assertEq(configuration.baseDecimals(), assets[i].decimals());
+			assertEq(configuration.quoteId(), router.getAssetId(USD));
+			assertEq(configuration.quoteDecimals(), 8);
+			assertTrue(router.getAssetConfiguration(assets[i]).get(router.getAssetId(USD)));
+		}
 	}
 
 	function test_getFeedConfiguration_revertsOnIdenticalAssets() public {
@@ -379,21 +349,31 @@ contract ChainlinkRouterTest is Test {
 	}
 
 	function test_query_singleHop() public view {
-		(address[] memory path, uint256 price) = router.query(WETH, USD);
-		uint256 expected = uint256(AggregatorInterface(ETH_USD).latestAnswer());
+		address[] memory feeds = SolArray.addresses(ETH_USD, BTC_USD, USDC_USD, USDT_USD);
+		address[] memory assets = SolArray.addresses(WETH, WBTC, USDC, USDT);
 
-		assertEq(path.length, 1);
-		assertEq(path[0], ETH_USD);
-		assertEq(price, expected);
+		for (uint256 i; i < feeds.length; ++i) {
+			(address[] memory path, uint256 price) = router.query(assets[i], USD);
+			uint256 expected = uint256(AggregatorInterface(feeds[i]).latestAnswer());
+
+			assertEq(path.length, 1);
+			assertEq(path[0], feeds[i]);
+			assertEq(price, expected);
+		}
 	}
 
 	function test_query_singleHop_inverted() public view {
-		(address[] memory path, uint256 price) = router.query(USD, WETH);
-		uint256 expected = 10 ** (18 + 8) / uint256(AggregatorInterface(ETH_USD).latestAnswer());
+		address[] memory feeds = SolArray.addresses(ETH_USD, BTC_USD, USDC_USD, USDT_USD);
+		address[] memory assets = SolArray.addresses(WETH, WBTC, USDC, USDT);
 
-		assertEq(path.length, 1);
-		assertEq(path[0], ETH_USD);
-		assertEq(price, expected);
+		for (uint256 i; i < feeds.length; ++i) {
+			(address[] memory path, uint256 price) = router.query(USD, assets[i]);
+			uint256 expected = 10 ** (assets[i].decimals() + 8) / uint256(AggregatorInterface(feeds[i]).latestAnswer());
+
+			assertEq(path.length, 1);
+			assertEq(path[0], feeds[i]);
+			assertEq(price, expected);
+		}
 	}
 
 	function test_query_2Hops() public view {
@@ -416,7 +396,11 @@ contract ChainlinkRouterTest is Test {
 		assertApproxEqAbs(price, expected, 12e6);
 	}
 
-	function test_query_3Hops_inverted() public impersonate(admin) {
+	function test_query_3Hops() public {
+		address[] memory usdFeeds = SolArray.addresses(LINK_USD, AAVE_USD, COMP_USD, UNI_USD);
+		address[] memory ethFeeds = SolArray.addresses(LINK_ETH, AAVE_ETH, COMP_ETH, UNI_ETH);
+		address[] memory assets = SolArray.addresses(LINK, AAVE, COMP, UNI);
+
 		bytes memory params = abi.encodePacked(
 			LINK_ETH,
 			LINK,
@@ -431,50 +415,26 @@ contract ChainlinkRouterTest is Test {
 			UNI,
 			WETH
 		);
+
 		router.register(params);
 
-		address[] memory path;
-		uint256 price;
-		uint256 expected;
+		for (uint256 i; i < ethFeeds.length; ++i) {
+			(address[] memory path, uint256 price) = router.query(assets[i], USDC);
+			uint256 expected = uint256(AggregatorInterface(usdFeeds[i]).latestAnswer()) / 1e2;
 
-		(path, price) = router.query(USDC, LINK);
-		expected = 10 ** (18 + 8) / uint256(AggregatorInterface(LINK_USD).latestAnswer());
-
-		assertEq(path.length, 3);
-		assertEq(path[0], USDC_USD);
-		assertEq(path[1], ETH_USD);
-		assertEq(path[2], LINK_ETH);
-		assertApproxEqAbs(price, expected, 0.001e18);
-
-		(path, price) = router.query(USDC, AAVE);
-		expected = 10 ** (18 + 8) / uint256(AggregatorInterface(AAVE_USD).latestAnswer());
-
-		assertEq(path.length, 3);
-		assertEq(path[0], USDC_USD);
-		assertEq(path[1], ETH_USD);
-		assertEq(path[2], AAVE_ETH);
-		assertApproxEqAbs(price, expected, 0.001e18);
-
-		(path, price) = router.query(USDC, COMP);
-		expected = 10 ** (18 + 8) / uint256(AggregatorInterface(COMP_USD).latestAnswer());
-
-		assertEq(path.length, 3);
-		assertEq(path[0], USDC_USD);
-		assertEq(path[1], ETH_USD);
-		assertEq(path[2], COMP_ETH);
-		assertApproxEqAbs(price, expected, 0.001e18);
-
-		(path, price) = router.query(USDC, UNI);
-		expected = 10 ** (18 + 8) / uint256(AggregatorInterface(UNI_USD).latestAnswer());
-
-		assertEq(path.length, 3);
-		assertEq(path[0], USDC_USD);
-		assertEq(path[1], ETH_USD);
-		assertEq(path[2], UNI_ETH);
-		assertApproxEqAbs(price, expected, 0.001e18);
+			assertEq(path.length, 3);
+			assertEq(path[0], ethFeeds[i]);
+			assertEq(path[1], ETH_USD);
+			assertEq(path[2], USDC_USD);
+			assertApproxEqAbs(price, expected, 1e6);
+		}
 	}
 
-	function test_query_3Hops() public impersonate(admin) {
+	function test_query_3Hops_inverted() public {
+		address[] memory usdFeeds = SolArray.addresses(LINK_USD, AAVE_USD, COMP_USD, UNI_USD);
+		address[] memory ethFeeds = SolArray.addresses(LINK_ETH, AAVE_ETH, COMP_ETH, UNI_ETH);
+		address[] memory assets = SolArray.addresses(LINK, AAVE, COMP, UNI);
+
 		bytes memory params = abi.encodePacked(
 			LINK_ETH,
 			LINK,
@@ -489,52 +449,25 @@ contract ChainlinkRouterTest is Test {
 			UNI,
 			WETH
 		);
+
 		router.register(params);
 
-		address[] memory path;
-		uint256 price;
-		uint256 expected;
+		for (uint256 i; i < ethFeeds.length; ++i) {
+			(address[] memory path, uint256 price) = router.query(USDC, assets[i]);
+			uint256 expected = 10 ** (assets[i].decimals() + 8) /
+				uint256(AggregatorInterface(usdFeeds[i]).latestAnswer());
 
-		(path, price) = router.query(LINK, USDC);
-		expected = uint256(AggregatorInterface(LINK_USD).latestAnswer()) / 1e2;
-
-		assertEq(path.length, 3);
-		assertEq(path[0], LINK_ETH);
-		assertEq(path[1], ETH_USD);
-		assertEq(path[2], USDC_USD);
-		assertApproxEqAbs(price, expected, 1e6);
-
-		(path, price) = router.query(AAVE, USDC);
-		expected = uint256(AggregatorInterface(AAVE_USD).latestAnswer()) / 1e2;
-
-		assertEq(path.length, 3);
-		assertEq(path[0], AAVE_ETH);
-		assertEq(path[1], ETH_USD);
-		assertEq(path[2], USDC_USD);
-		assertApproxEqAbs(price, expected, 1e6);
-
-		(path, price) = router.query(COMP, USDC);
-		expected = uint256(AggregatorInterface(COMP_USD).latestAnswer()) / 1e2;
-
-		assertEq(path.length, 3);
-		assertEq(path[0], COMP_ETH);
-		assertEq(path[1], ETH_USD);
-		assertEq(path[2], USDC_USD);
-		assertApproxEqAbs(price, expected, 1e6);
-
-		(path, price) = router.query(UNI, USDC);
-		expected = uint256(AggregatorInterface(UNI_USD).latestAnswer()) / 1e2;
-
-		assertEq(path.length, 3);
-		assertEq(path[0], UNI_ETH);
-		assertEq(path[1], ETH_USD);
-		assertEq(path[2], USDC_USD);
-		assertApproxEqAbs(price, expected, 1e6);
+			assertEq(path.length, 3);
+			assertEq(path[0], USDC_USD);
+			assertEq(path[1], ETH_USD);
+			assertEq(path[2], ethFeeds[i]);
+			assertApproxEqAbs(price, expected, 0.001e18);
+		}
 	}
 
 	function test_query_revertsOnNoPath() public {
 		vm.expectRevert();
-		router.query(LINK, USD);
+		router.query(LINK, WBTC);
 	}
 
 	function test_query_revertsOnIdenticalAssets() public {
