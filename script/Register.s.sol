@@ -13,8 +13,12 @@ contract Register is BaseScript {
 	function setUp() public virtual override {
 		super.setUp();
 
-		string memory deployment = vm.readFile(string.concat("./deployments/", vm.toString(block.chainid), ".json"));
-		router = ChainlinkRouter(deployment.readAddress("$.proxy"));
+		forkChain(block.chainid);
+
+		string memory json = vm.readFile(string.concat("./deployments/", vm.toString(block.chainid), ".json"));
+
+		router = ChainlinkRouter(json.readAddress("$.proxy"));
+		vm.assertTrue(address(router).code.length != 0);
 	}
 
 	function run() external broadcast {

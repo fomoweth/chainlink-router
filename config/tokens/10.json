@@ -15,6 +15,11 @@
 		"decimals": 18
 	},
 	{
+		"address": "0xC5B3AC2DF8D8D7AC851F763a5b3Ff23B4A696d59",
+		"symbol": "APT",
+		"decimals": 8
+	},
+	{
 		"address": "0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921",
 		"symbol": "BAL",
 		"decimals": 18
@@ -32,6 +37,11 @@
 	{
 		"address": "0x0994206dfE8De6Ec6920FF4D779B0d950605Fb53",
 		"symbol": "CRV",
+		"decimals": 18
+	},
+	{
+		"address": "0xC52D7F23a2e460248Db6eE192Cb23dD12bDDCbf6",
+		"symbol": "crvUSD",
 		"decimals": 18
 	},
 	{
@@ -120,6 +130,11 @@
 		"decimals": 18
 	},
 	{
+		"address": "0xC1c167CC44f7923cd0062c4370Df962f9DDB16f5",
+		"symbol": "PEPE",
+		"decimals": 18
+	},
+	{
 		"address": "0x9e1028F5F1D5eDE59748FFceE5532509976840E0",
 		"symbol": "PERP",
 		"decimals": 18
@@ -145,6 +160,11 @@
 		"decimals": 18
 	},
 	{
+		"address": "0x9d36F8f62347538440a212e9162f534f797542df",
+		"symbol": "SATS",
+		"decimals": 18
+	},
+	{
 		"address": "0x2Dd1B4D4548aCCeA497050619965f91f78b3b532",
 		"symbol": "sFRAX",
 		"decimals": 18
@@ -158,6 +178,11 @@
 		"address": "0x8700dAec35aF8Ff88c16BdF0418774CB3D7599B4",
 		"symbol": "SNX",
 		"decimals": 18
+	},
+	{
+		"address": "0xba1Cf949c382A32a09A17B2AdF3587fc7fA664f1",
+		"symbol": "SOL",
+		"decimals": 9
 	},
 	{
 		"address": "0xd6B9D8F938326FcdfFE082e270BD0f0A9f39E8FB",
@@ -175,9 +200,19 @@
 		"decimals": 18
 	},
 	{
+		"address": "0x3eaEb77b03dBc0F6321AE1b72b2E9aDb0F60112B",
+		"symbol": "SUSHI",
+		"decimals": 18
+	},
+	{
 		"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40",
 		"symbol": "tBTC",
 		"decimals": 18
+	},
+	{
+		"address": "0xb1aE0a34DC3976d98C1741C92b798dAF8E0e1e11",
+		"symbol": "TRX",
+		"decimals": 6
 	},
 	{
 		"address": "0xcB59a0A753fDB7491d5F3D794316F1adE197B21E",
@@ -203,6 +238,11 @@
 		"address": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
 		"symbol": "USDC.e",
 		"decimals": 6
+	},
+	{
+		"address": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+		"symbol": "USDD",
+		"decimals": 18
 	},
 	{
 		"address": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
@@ -267,6 +307,11 @@
 	{
 		"address": "0x6985884C4392D348587B19cb9eAAf157F13271cd",
 		"symbol": "ZRO",
+		"decimals": 18
+	},
+	{
+		"address": "0xD1917629B3E6A72E6772Aab5dBe58Eb7FA3C2F33",
+		"symbol": "ZRX",
 		"decimals": 18
 	}
 ]
