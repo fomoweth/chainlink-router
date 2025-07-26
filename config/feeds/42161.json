@@ -1,604 +1,597 @@
 [
-    {
-        "aggregator": "0x4bC735Ef24bf286983024CAd5D03f0738865Aaef",
-        "description": "1INCH / USD",
-        "decimals": 8,
-        "base": "0x6314C31A7a1652cE482cffe247E9CB7c3f4BB9aF",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xaD1d5344AaDE45F43E596773Bcc4c423EAbdD034",
-        "description": "AAVE / USD",
-        "decimals": 8,
-        "base": "0xba5DdD1f9d7F570dc94a51479a000E3BCE967196",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x6303C35D49B13016A6acef5414893Fa7519E6da0",
-        "description": "agETH / ETH Exchange Rate",
-        "decimals": 18,
-        "base": "0xF1A88250532a4A66A2420a8cbB434Da82E1E2cA1",
-        "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
-    },
-    {
-        "aggregator": "0x5Fb73f7Af8a29297953d3611422826039338E5b4",
-        "description": "ankrETH / ETH Exchange Rate",
-        "decimals": 18,
-        "base": "0xe05A08226c49b636ACf99c40Da8DC6aF83CE5bB3",
-        "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
-    },
-    {
-        "aggregator": "0x38ACD8CA9612737D2Ba42881b544626A8E18b061",
-        "description": "ANON / USD",
-        "decimals": 8,
-        "base": "0xD8D7eB30c1f418A699b72d7772f4E81fedd582ba",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x221912ce795669f628c51c69b7d0873eDA9C03bB",
-        "description": "APE / USD",
-        "decimals": 8,
-        "base": "0x7f9FBf9bDd3F4105C478b996B648FE6e828a1e98",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xdc49F292ad1bb3DAb6C11363d74ED06F38b9bd9C",
-        "description": "APT / USD",
-        "decimals": 8,
-        "base": "0x9c0e042d65a2e1fF31aC83f404E5Cb79F452c337",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xb2A824043730FE05F3DA2efaFa1CBbe83fa548D6",
-        "description": "ARB / USD",
-        "decimals": 8,
-        "base": "0x912CE59144191C1204E64559FE8253a0e49E6548",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x8bf61728eeDCE2F32c456454d87B5d6eD6150208",
-        "description": "AVAX / USD",
-        "decimals": 8,
-        "base": "0xd6a34b430C05ac78c24985f8abEE2616BC1788Cb",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x84e8237CC1418Ea1B4A1e0C3e7F48c3A5fbC81AF",
-        "description": "AXL / USD",
-        "decimals": 8,
-        "base": "0x23ee2343B892b1BB63503a4FAbc840E0e2C6810f",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xBE5eA816870D11239c543F84b71439511D70B94f",
-        "description": "BAL / USD",
-        "decimals": 8,
-        "base": "0x040d1EdC9569d4Bab2D15287Dc5A4F10F56a56B8",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xc5a90A6d7e4Af242dA238FFe279e9f2BA0c64B2e",
-        "description": "BTC / ETH",
-        "decimals": 18,
-        "base": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
-        "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
-    },
-    {
-        "aggregator": "0x7519bCA20e21725557Bb98d9032124f8885a26C2",
-        "description": "BTC-USD Total Marketcap",
-        "decimals": 8,
-        "base": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x256654437f1ADA8057684b18d742eFD14034C400",
-        "description": "CAKE / USD",
-        "decimals": 8,
-        "base": "0x1b896893dfc86bb67Cf57767298b9073D2c1bA2c",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x0518673439245BB95A58688Bc31cd513F3D5bDd6",
-        "description": "cbETH-ETH Exchange Rate",
-        "decimals": 18,
-        "base": "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f",
-        "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
-    },
-    {
-        "aggregator": "0xe7C53FFd03Eb6ceF7d208bC4C13446c76d1E5884",
-        "description": "COMP / USD",
-        "decimals": 8,
-        "base": "0x354A6dA3fcde098F8389cad84b0182725c6C91dE",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xaebDA2c976cfd1eE1977Eac079B4382acb849325",
-        "description": "CRV / USD",
-        "decimals": 8,
-        "base": "0x11cDb42B0EB46D95f990BeDD4695A6e3fA034978",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x0a32255dd4BB6177C994bAAc73E0606fDD568f66",
-        "description": "CRVUSD / USD",
-        "decimals": 8,
-        "base": "0x498Bf2B1e120FeD3ad3D42EA2165E9b73f99C1e5",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xc5C8E77B397E531B8EC06BFb0048328B30E9eCfB",
-        "description": "DAI / USD",
-        "decimals": 8,
-        "base": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xA33a06c119EC08F92735F9ccA37e07Af08C4f281",
-        "description": "DODO / USD",
-        "decimals": 8,
-        "base": "0x69Eb4FA4a2fbd498C257C57Ea8b7655a2559A581",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xD3631AC9D81eD560D61957a55E9c992cdE497eb6",
-        "description": "egETH / ETH Exchange Rate",
-        "decimals": 18,
-        "base": "0x6C49A527bdd2E09D4337C8699aA7B44dD053Eda8",
-        "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
-    },
-    {
-        "aggregator": "0x9eE96caa9972c801058CAA8E23419fc6516FbF7e",
-        "description": "ENA / USD",
-        "decimals": 8,
-        "base": "0x58538e6A46E07434d7E7375Bc268D3cb839C0133",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612",
-        "description": "ETH / USD",
-        "decimals": 8,
-        "base": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x11E1836bFF2ce9d6A5bec9cA79dc998210f3886d",
-        "description": "ezETH / ETH",
-        "decimals": 18,
-        "base": "0x2416092f143378750bb29b79eD961ab195CcEea5",
-        "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
-    },
-    {
-        "aggregator": "0x0809E3d38d1B4214958faf06D8b1B1a2b73f2ab8",
-        "description": "FRAX / USD",
-        "decimals": 8,
-        "base": "0x17FC002b466eEc40DaE837Fc4bE5c67993ddBd6F",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x5C3e80763862CB777Aa07BDDBcCE0123104e1c34",
-        "description": "frxETH-ETH Exchange Rate High",
-        "decimals": 18,
-        "base": "0x178412e79c25968a32e89b11f63B33F733770c2A",
-        "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
-    },
-    {
-        "aggregator": "0xF6a5c5480A9aC736ea567454e2E570889E0DB4Bc",
-        "description": "frxUSD / USD",
-        "decimals": 8,
-        "base": "0x80Eede496655FB9047dd39d9f418d5483ED600df",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x36a121448D74Fa81450c992A1a44B9b7377CD3a5",
-        "description": "FXS / USD",
-        "decimals": 8,
-        "base": "0x9d2F299715D94d8A7E6F5eaa8E654E8c74a988A7",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x3c786e934F23375Ca345C9b8D5aD54838796E8e7",
-        "description": "GHO / USD",
-        "decimals": 8,
-        "base": "0x7dfF72693f6A4149b17e7C6314655f6A9F7c8B33",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xDB98056FecFff59D032aB628337A4887110df3dB",
-        "description": "GMX / USD",
-        "decimals": 8,
-        "base": "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xE89E98CE4E19071E59Ed4780E0598b541CE76486",
-        "description": "GNS / USD",
-        "decimals": 8,
-        "base": "0x18c11FD286C5EC11c3b683Caa813B77f5163A122",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x0F38D86FceF4955B705F35c9e41d1A16e0637c73",
-        "description": "GRT / USD",
-        "decimals": 8,
-        "base": "0x9623063377AD1B27544C965cCd7342f7EA7e88C7",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x3C5C5329b028E674F7a124b18527B94BE74A66cF",
-        "description": "inETH / ETH Exchange Rate",
-        "decimals": 18,
-        "base": "0x5A7a183B6B44Dc4EC2E3d2eF43F98C5152b1d76d",
-        "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
-    },
-    {
-        "aggregator": "0x4050bD8263771f8BBded08C299BD944488a91AaD",
-        "description": "instETH / ETH Exchange Rate",
-        "decimals": 18,
-        "base": "0xd08C3F25862077056cb1b710937576Af899a4959",
-        "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
-    },
-    {
-        "aggregator": "0x04180965a782E487d0632013ABa488A472243542",
-        "description": "JOE / USD",
-        "decimals": 8,
-        "base": "0x371c7ec6D8039ff7933a2AA28EB827Ffe1F52f07",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xbF539d4c2106dd4D9AB6D56aed3d9023529Db145",
-        "description": "KNC / USD",
-        "decimals": 8,
-        "base": "0xe4DDDfe67E7164b0FE14E218d80dC4C08eDC01cB",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xA43A34030088E6510FecCFb77E88ee5e7ed0fE64",
-        "description": "LDO / USD",
-        "decimals": 8,
-        "base": "0x13Ad51ed4F1B7e9Dc168d8a00cB3f4dDD85EfA60",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xb7c8Fb1dB45007F98A68Da0588e1AA524C317f27",
-        "description": "LINK / ETH",
-        "decimals": 18,
-        "base": "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4",
-        "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
-    },
-    {
-        "aggregator": "0x86E53CF1B870786351Da77A57575e79CB55812CB",
-        "description": "LINK / USD",
-        "decimals": 8,
-        "base": "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x0411D28c94d85A36bC72Cb0f875dfA8371D8fFfF",
-        "description": "LUSD / USD",
-        "decimals": 8,
-        "base": "0x93b346b6BC2548dA6A1E7d98E9a421B42541425b",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x47E55cCec6582838E173f252D08Afd8116c2202d",
-        "description": "MAGIC / USD",
-        "decimals": 8,
-        "base": "0x539bdE0d7Dbd336b79148AA742883198BBF60342",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x52099D4523531f678Dfc568a7B1e5038aadcE1d6",
-        "description": "MATIC / USD",
-        "decimals": 8,
-        "base": "0xE868C3d83EC287c01Bcb533A33d197d9BFa79DAD",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xdE9f0894670c4EFcacF370426F10C3AD2Cdf147e",
-        "description": "MKR / USD",
-        "decimals": 8,
-        "base": "0x30F16E3273AB6e4584B79B76fD944E577e49a5c8",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xBF5C3fB2633e924598A46B9D07a174a9DBcF57C0",
-        "description": "NEAR / USD",
-        "decimals": 8,
-        "base": "0x5ed25E305E08F58AFD7995EaC72563E6BE65A617",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xE2A3216D8e4BdFA2Ee78F2e55B995e787e6Ce500",
-        "description": "ORDER / USD",
-        "decimals": 8,
-        "base": "0x4E200fE2f3eFb977d5fd9c430A41531FB04d97B8",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xB4102D5E72c402D537C9f024F4bd9c3709FE200d",
-        "description": "osETH / ETH Exchange Rate",
-        "decimals": 18,
-        "base": "0xf7d4e7273E5015C96728A6b02f31C505eE184603",
-        "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
-    },
-    {
-        "aggregator": "0x2BA975D4D7922cD264267Af16F3bD177F206FE3c",
-        "description": "PAXG / USD",
-        "decimals": 8,
-        "base": "0x700228eCF0d62d146699Dd1c200B48356dD5571a",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x66853E19d73c0F9301fe099c324A1E9726953433",
-        "description": "PENDLE / USD",
-        "decimals": 8,
-        "base": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x20d0Fcab0ECFD078B036b6CAf1FaC69A6453b352",
-        "description": "RDNT / USD",
-        "decimals": 8,
-        "base": "0x3082CC23568eA640225c2467653dB90e9250AaA0",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xF3272CAfe65b190e76caAF483db13424a3e23dD2",
-        "description": "rETH-ETH Exchange Rate",
-        "decimals": 18,
-        "base": "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8",
-        "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
-    },
-    {
-        "aggregator": "0xF0b7159BbFc341Cc41E7Cb182216F62c6d40533D",
-        "description": "RPL / USD",
-        "decimals": 8,
-        "base": "0xB766039cc6DB368759C1E56B79AFfE831d0Cc507",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x3A917e6B5732dFCc4A45257e3930979fAE6a3737",
-        "description": "rsETH / ETH Exchange Rate",
-        "decimals": 18,
-        "base": "0x4186BFC76E2E237523CBC30FD220FE055156b41F",
-        "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
-    },
-    {
-        "aggregator": "0x24ceA4b8ce57cdA5058b924B9B9987992450590c",
-        "description": "SOL / USD",
-        "decimals": 8,
-        "base": "0x9B8Df6E244526ab5F6e6400d331DB28C8fdDdb55",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x9ca3D04Bdf90Ddc0074Ea57d3e2D331CD4b2d5a2",
-        "description": "solvBTC / BTC",
-        "decimals": 8,
-        "base": "0x3647c54c4c2C65bC7a2D63c0Da2809B399DBBDC0",
-        "quote": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f"
-    },
-    {
-        "aggregator": "0x383b3624478124697BEF675F07cA37570b73992f",
-        "description": "SPELL / USD",
-        "decimals": 8,
-        "base": "0x3E6648C5a70A150A88bCE65F4aD4d506Fe15d2AF",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x7A58648CAeA88e042767823723aF266DC6c4c4D9",
-        "description": "stBTC / BTC Exchange Rate",
-        "decimals": 18,
-        "base": "0xf6718b2701D4a6498eF77D7c152b2137Ab28b8A3",
-        "quote": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f"
-    },
-    {
-        "aggregator": "0xded2c52b75B24732e9107377B7Ba93eC1fFa4BAf",
-        "description": "STETH / ETH",
-        "decimals": 18,
-        "base": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
-        "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
-    },
-    {
-        "aggregator": "0x07C5b924399cc23c24a95c8743DE4006a32b7f2a",
-        "description": "STETH / USD",
-        "decimals": 8,
-        "base": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xe74d69E233faB0d8F48921f2D93aDfDe44cEb3B7",
-        "description": "STG / USD",
-        "decimals": 8,
-        "base": "0x6694340fc020c5E6B96567843da2df01b2CE1eb6",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xf2215b9c35b1697B5f47e407c917a40D055E68d7",
-        "description": "sUSDe / USD",
-        "decimals": 8,
-        "base": "0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x605EA726F0259a30db5b7c9ef39Df9fE78665C44",
-        "description": "sUSDe / USDe Exchange Rate",
-        "decimals": 18,
-        "base": "0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2",
-        "quote": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34"
-    },
-    {
-        "aggregator": "0x2483326d19f780Fb082f333Fe124e4C075B207ba",
-        "description": "sUSDS / USDS Exchange Rate",
-        "decimals": 18,
-        "base": "0xdDb46999F8891663a8F2828d25298f70416d7610",
-        "quote": "0x6491c05A82219b8D1479057361ff1654749b876b"
-    },
-    {
-        "aggregator": "0xb2A8BA74cbca38508BA1632761b56C897060147C",
-        "description": "SUSHI / USD",
-        "decimals": 8,
-        "base": "0xd4d42F0b6DEF4CE0383636770eF773390d85c61A",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xe4c31C5B118d8aA92433eD1c7EC70afb430cd730",
-        "description": "TBTC / BTC",
-        "decimals": 8,
-        "base": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40",
-        "quote": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f"
-    },
-    {
-        "aggregator": "0xE808488e8627F6531bA79a13A9E0271B39abEb1C",
-        "description": "TBTC / USD",
-        "decimals": 8,
-        "base": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x98a977Ba31C72aeF2e15B950Eb5Ae3158863D856",
-        "description": "tETH / wstETH Exchange Rate",
-        "decimals": 18,
-        "base": "0xd09ACb80C1E8f2291862c4978A008791c9167003",
-        "quote": "0x5979D7b546E38E414F7E9822514be443A4800529"
-    },
-    {
-        "aggregator": "0x373510BDa1ab7e873c731968f4D81B685f520E4B",
-        "description": "TRUMP / USD",
-        "decimals": 8,
-        "base": "0x79489EAb35FcA14d216CADF41AC20792993f2A7c",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x6fAbee62266Da6686EE2744C6f15bb8352d2f28D",
-        "description": "TUSD / USD",
-        "decimals": 8,
-        "base": "0x4D15a3A2286D883AF0AA1B3f21367843FAc63E07",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x9C917083fDb403ab5ADbEC26Ee294f6EcAda2720",
-        "description": "UNI / USD",
-        "decimals": 8,
-        "base": "0xFa7F8980b0f1E64A2062791cc3b0871572f1F7f0",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xa677622735c38001fd1183c92dc5b889128EC234",
-        "description": "uniBTC / BTC Exchange Rate",
-        "decimals": 18,
-        "base": "0x6B2a01A5f79dEb4c2f3c0eDa7b01DF456FbD726a",
-        "quote": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f"
-    },
-    {
-        "aggregator": "0xF18BE32dB91591A7256d738C166FA195a17457DA",
-        "description": "uniETH / ETH Exchange Rate",
-        "decimals": 18,
-        "base": "0x3d15fD46CE9e551498328B1C83071D9509E2C3a0",
-        "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
-    },
-    {
-        "aggregator": "0x50834F3163758fcC1Df9973b6e91f0F0F0434aD3",
-        "description": "USDC / USD",
-        "decimals": 8,
-        "base": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x4Ee1f9ec1048979930aC832a3C1d18a0b4955a02",
-        "description": "USDD / USD",
-        "decimals": 8,
-        "base": "0x680447595e8b7b3Aa1B43beB9f6098C79ac2Ab3f",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x88AC7Bca36567525A866138F03a6F6844868E0Bc",
-        "description": "USDe / USD",
-        "decimals": 8,
-        "base": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x37833E5b3fbbEd4D613a3e0C354eF91A42B81eeB",
-        "description": "USDS / USD",
-        "decimals": 8,
-        "base": "0x6491c05A82219b8D1479057361ff1654749b876b",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x3f3f5dF88dC9F13eac63DF89EC16ef6e7E25DdE7",
-        "description": "USDT / USD",
-        "decimals": 8,
-        "base": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x0017abAc5b6f291F9164e35B1234CA1D697f9CF4",
-        "description": "WBTC / BTC",
-        "decimals": 8,
-        "base": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
-        "quote": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f"
-    },
-    {
-        "aggregator": "0x20bAe7e1De9c596f5F7615aeaa1342Ba99294e12",
-        "description": "weETH / eETH Exchange Rate",
-        "decimals": 18,
-        "base": "0x35751007a407ca6FEFfE80b3cB397736D2cf4dbe",
-        "quote": "0x35fA164735182de50811E8e2E824cFb9B6118ac2"
-    },
-    {
-        "aggregator": "0xE141425bc1594b8039De6390db1cDaf4397EA22b",
-        "description": "weETH / ETH",
-        "decimals": 18,
-        "base": "0x35751007a407ca6FEFfE80b3cB397736D2cf4dbe",
-        "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
-    },
-    {
-        "aggregator": "0x5e2b5C5C07cCA3437c4D724225Bb42c7E55d1597",
-        "description": "WOO / USD",
-        "decimals": 8,
-        "base": "0xcAFcD85D8ca7Ad1e1C6F82F651fA15E33AEfD07b",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0xb523AE262D20A936BC152e6023996e46FDC2A95D",
-        "description": "WSTETH / ETH",
-        "decimals": 18,
-        "base": "0x5979D7b546E38E414F7E9822514be443A4800529",
-        "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
-    },
-    {
-        "aggregator": "0xB1552C5e96B312d0Bf8b554186F846C40614a540",
-        "description": "wstETH-stETH Exchange Rate",
-        "decimals": 18,
-        "base": "0x5979D7b546E38E414F7E9822514be443A4800529",
-        "quote": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
-    },
-    {
-        "aggregator": "0x806c532D543352e7C344ba6C7F3F00Bfbd309Af1",
-        "description": "XAI / USD",
-        "decimals": 8,
-        "base": "0x4Cb9a7AE498CEDcBb5EAe9f25736aE7d428C9D66",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x300b0990Ba191a1AeBef6e5Ed8B5B308C0B2d0c9",
-        "description": "XVS / USD",
-        "decimals": 8,
-        "base": "0xc1Eb7689147C81aC840d4FF0D298489fc7986d52",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x745Ab5b69E01E2BE1104Ca84937Bb71f96f5fB21",
-        "description": "YFI / USD",
-        "decimals": 8,
-        "base": "0x82e3A8F066a6989666b031d916c43672085b1582",
-        "quote": "0x0000000000000000000000000000000000000348"
-    },
-    {
-        "aggregator": "0x1940fEd49cDBC397941f2D336eb4994D599e568B",
-        "description": "ZRO / USD",
-        "decimals": 8,
-        "base": "0x6985884C4392D348587B19cb9eAAf157F13271cd",
-        "quote": "0x0000000000000000000000000000000000000348"
-    }
+	{
+		"aggregator": "0x4bC735Ef24bf286983024CAd5D03f0738865Aaef",
+		"description": "1INCH / USD",
+		"decimals": 8,
+		"base": "0x6314C31A7a1652cE482cffe247E9CB7c3f4BB9aF",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xaD1d5344AaDE45F43E596773Bcc4c423EAbdD034",
+		"description": "AAVE / USD",
+		"decimals": 8,
+		"base": "0xba5DdD1f9d7F570dc94a51479a000E3BCE967196",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x6303C35D49B13016A6acef5414893Fa7519E6da0",
+		"description": "agETH / ETH Exchange Rate",
+		"decimals": 18,
+		"base": "0xF1A88250532a4A66A2420a8cbB434Da82E1E2cA1",
+		"quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+	},
+	{
+		"aggregator": "0x5Fb73f7Af8a29297953d3611422826039338E5b4",
+		"description": "ankrETH / ETH Exchange Rate",
+		"decimals": 18,
+		"base": "0xe05A08226c49b636ACf99c40Da8DC6aF83CE5bB3",
+		"quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+	},
+	{
+		"aggregator": "0x38ACD8CA9612737D2Ba42881b544626A8E18b061",
+		"description": "ANON / USD",
+		"decimals": 8,
+		"base": "0xD8D7eB30c1f418A699b72d7772f4E81fedd582ba",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x221912ce795669f628c51c69b7d0873eDA9C03bB",
+		"description": "APE / USD",
+		"decimals": 8,
+		"base": "0x7f9FBf9bDd3F4105C478b996B648FE6e828a1e98",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xdc49F292ad1bb3DAb6C11363d74ED06F38b9bd9C",
+		"description": "APT / USD",
+		"decimals": 8,
+		"base": "0x9c0e042d65a2e1fF31aC83f404E5Cb79F452c337",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xb2A824043730FE05F3DA2efaFa1CBbe83fa548D6",
+		"description": "ARB / USD",
+		"decimals": 8,
+		"base": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x8bf61728eeDCE2F32c456454d87B5d6eD6150208",
+		"description": "AVAX / USD",
+		"decimals": 8,
+		"base": "0xd6a34b430C05ac78c24985f8abEE2616BC1788Cb",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x84e8237CC1418Ea1B4A1e0C3e7F48c3A5fbC81AF",
+		"description": "AXL / USD",
+		"decimals": 8,
+		"base": "0x23ee2343B892b1BB63503a4FAbc840E0e2C6810f",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xBE5eA816870D11239c543F84b71439511D70B94f",
+		"description": "BAL / USD",
+		"decimals": 8,
+		"base": "0x040d1EdC9569d4Bab2D15287Dc5A4F10F56a56B8",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xc5a90A6d7e4Af242dA238FFe279e9f2BA0c64B2e",
+		"description": "BTC / ETH",
+		"decimals": 18,
+		"base": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+		"quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+	},
+	{
+		"aggregator": "0x7519bCA20e21725557Bb98d9032124f8885a26C2",
+		"description": "BTC-USD Total Marketcap",
+		"decimals": 8,
+		"base": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x256654437f1ADA8057684b18d742eFD14034C400",
+		"description": "CAKE / USD",
+		"decimals": 8,
+		"base": "0x1b896893dfc86bb67Cf57767298b9073D2c1bA2c",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x0518673439245BB95A58688Bc31cd513F3D5bDd6",
+		"description": "cbETH-ETH Exchange Rate",
+		"decimals": 18,
+		"base": "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f",
+		"quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+	},
+	{
+		"aggregator": "0xe7C53FFd03Eb6ceF7d208bC4C13446c76d1E5884",
+		"description": "COMP / USD",
+		"decimals": 8,
+		"base": "0x354A6dA3fcde098F8389cad84b0182725c6C91dE",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xaebDA2c976cfd1eE1977Eac079B4382acb849325",
+		"description": "CRV / USD",
+		"decimals": 8,
+		"base": "0x11cDb42B0EB46D95f990BeDD4695A6e3fA034978",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x0a32255dd4BB6177C994bAAc73E0606fDD568f66",
+		"description": "CRVUSD / USD",
+		"decimals": 8,
+		"base": "0x498Bf2B1e120FeD3ad3D42EA2165E9b73f99C1e5",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xc5C8E77B397E531B8EC06BFb0048328B30E9eCfB",
+		"description": "DAI / USD",
+		"decimals": 8,
+		"base": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xA33a06c119EC08F92735F9ccA37e07Af08C4f281",
+		"description": "DODO / USD",
+		"decimals": 8,
+		"base": "0x69Eb4FA4a2fbd498C257C57Ea8b7655a2559A581",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xD3631AC9D81eD560D61957a55E9c992cdE497eb6",
+		"description": "egETH / ETH Exchange Rate",
+		"decimals": 18,
+		"base": "0x6C49A527bdd2E09D4337C8699aA7B44dD053Eda8",
+		"quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+	},
+	{
+		"aggregator": "0x9eE96caa9972c801058CAA8E23419fc6516FbF7e",
+		"description": "ENA / USD",
+		"decimals": 8,
+		"base": "0x58538e6A46E07434d7E7375Bc268D3cb839C0133",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612",
+		"description": "ETH / USD",
+		"decimals": 8,
+		"base": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x11E1836bFF2ce9d6A5bec9cA79dc998210f3886d",
+		"description": "ezETH / ETH",
+		"decimals": 18,
+		"base": "0x2416092f143378750bb29b79eD961ab195CcEea5",
+		"quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+	},
+	{
+		"aggregator": "0x0809E3d38d1B4214958faf06D8b1B1a2b73f2ab8",
+		"description": "FRAX / USD",
+		"decimals": 8,
+		"base": "0x17FC002b466eEc40DaE837Fc4bE5c67993ddBd6F",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x5C3e80763862CB777Aa07BDDBcCE0123104e1c34",
+		"description": "frxETH-ETH Exchange Rate High",
+		"decimals": 18,
+		"base": "0x178412e79c25968a32e89b11f63B33F733770c2A",
+		"quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+	},
+	{
+		"aggregator": "0xF6a5c5480A9aC736ea567454e2E570889E0DB4Bc",
+		"description": "frxUSD / USD",
+		"decimals": 8,
+		"base": "0x80Eede496655FB9047dd39d9f418d5483ED600df",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x36a121448D74Fa81450c992A1a44B9b7377CD3a5",
+		"description": "FXS / USD",
+		"decimals": 8,
+		"base": "0x9d2F299715D94d8A7E6F5eaa8E654E8c74a988A7",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x3c786e934F23375Ca345C9b8D5aD54838796E8e7",
+		"description": "GHO / USD",
+		"decimals": 8,
+		"base": "0x7dfF72693f6A4149b17e7C6314655f6A9F7c8B33",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xDB98056FecFff59D032aB628337A4887110df3dB",
+		"description": "GMX / USD",
+		"decimals": 8,
+		"base": "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xE89E98CE4E19071E59Ed4780E0598b541CE76486",
+		"description": "GNS / USD",
+		"decimals": 8,
+		"base": "0x18c11FD286C5EC11c3b683Caa813B77f5163A122",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x0F38D86FceF4955B705F35c9e41d1A16e0637c73",
+		"description": "GRT / USD",
+		"decimals": 8,
+		"base": "0x9623063377AD1B27544C965cCd7342f7EA7e88C7",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x3C5C5329b028E674F7a124b18527B94BE74A66cF",
+		"description": "inETH / ETH Exchange Rate",
+		"decimals": 18,
+		"base": "0x5A7a183B6B44Dc4EC2E3d2eF43F98C5152b1d76d",
+		"quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+	},
+	{
+		"aggregator": "0x4050bD8263771f8BBded08C299BD944488a91AaD",
+		"description": "instETH / ETH Exchange Rate",
+		"decimals": 18,
+		"base": "0xd08C3F25862077056cb1b710937576Af899a4959",
+		"quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+	},
+	{
+		"aggregator": "0x04180965a782E487d0632013ABa488A472243542",
+		"description": "JOE / USD",
+		"decimals": 8,
+		"base": "0x371c7ec6D8039ff7933a2AA28EB827Ffe1F52f07",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xbF539d4c2106dd4D9AB6D56aed3d9023529Db145",
+		"description": "KNC / USD",
+		"decimals": 8,
+		"base": "0xe4DDDfe67E7164b0FE14E218d80dC4C08eDC01cB",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xA43A34030088E6510FecCFb77E88ee5e7ed0fE64",
+		"description": "LDO / USD",
+		"decimals": 8,
+		"base": "0x13Ad51ed4F1B7e9Dc168d8a00cB3f4dDD85EfA60",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xb7c8Fb1dB45007F98A68Da0588e1AA524C317f27",
+		"description": "LINK / ETH",
+		"decimals": 18,
+		"base": "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4",
+		"quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+	},
+	{
+		"aggregator": "0x86E53CF1B870786351Da77A57575e79CB55812CB",
+		"description": "LINK / USD",
+		"decimals": 8,
+		"base": "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x0411D28c94d85A36bC72Cb0f875dfA8371D8fFfF",
+		"description": "LUSD / USD",
+		"decimals": 8,
+		"base": "0x93b346b6BC2548dA6A1E7d98E9a421B42541425b",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x47E55cCec6582838E173f252D08Afd8116c2202d",
+		"description": "MAGIC / USD",
+		"decimals": 8,
+		"base": "0x539bdE0d7Dbd336b79148AA742883198BBF60342",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x52099D4523531f678Dfc568a7B1e5038aadcE1d6",
+		"description": "MATIC / USD",
+		"decimals": 8,
+		"base": "0xE868C3d83EC287c01Bcb533A33d197d9BFa79DAD",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xdE9f0894670c4EFcacF370426F10C3AD2Cdf147e",
+		"description": "MKR / USD",
+		"decimals": 8,
+		"base": "0x30F16E3273AB6e4584B79B76fD944E577e49a5c8",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xBF5C3fB2633e924598A46B9D07a174a9DBcF57C0",
+		"description": "NEAR / USD",
+		"decimals": 8,
+		"base": "0x5ed25E305E08F58AFD7995EaC72563E6BE65A617",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xE2A3216D8e4BdFA2Ee78F2e55B995e787e6Ce500",
+		"description": "ORDER / USD",
+		"decimals": 8,
+		"base": "0x4E200fE2f3eFb977d5fd9c430A41531FB04d97B8",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xB4102D5E72c402D537C9f024F4bd9c3709FE200d",
+		"description": "osETH / ETH Exchange Rate",
+		"decimals": 18,
+		"base": "0xf7d4e7273E5015C96728A6b02f31C505eE184603",
+		"quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+	},
+	{
+		"aggregator": "0x2BA975D4D7922cD264267Af16F3bD177F206FE3c",
+		"description": "PAXG / USD",
+		"decimals": 8,
+		"base": "0x700228eCF0d62d146699Dd1c200B48356dD5571a",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x66853E19d73c0F9301fe099c324A1E9726953433",
+		"description": "PENDLE / USD",
+		"decimals": 8,
+		"base": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x20d0Fcab0ECFD078B036b6CAf1FaC69A6453b352",
+		"description": "RDNT / USD",
+		"decimals": 8,
+		"base": "0x3082CC23568eA640225c2467653dB90e9250AaA0",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xF3272CAfe65b190e76caAF483db13424a3e23dD2",
+		"description": "rETH-ETH Exchange Rate",
+		"decimals": 18,
+		"base": "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8",
+		"quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+	},
+	{
+		"aggregator": "0xF0b7159BbFc341Cc41E7Cb182216F62c6d40533D",
+		"description": "RPL / USD",
+		"decimals": 8,
+		"base": "0xB766039cc6DB368759C1E56B79AFfE831d0Cc507",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x3A917e6B5732dFCc4A45257e3930979fAE6a3737",
+		"description": "rsETH / ETH Exchange Rate",
+		"decimals": 18,
+		"base": "0x4186BFC76E2E237523CBC30FD220FE055156b41F",
+		"quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+	},
+	{
+		"aggregator": "0x24ceA4b8ce57cdA5058b924B9B9987992450590c",
+		"description": "SOL / USD",
+		"decimals": 8,
+		"base": "0x9B8Df6E244526ab5F6e6400d331DB28C8fdDdb55",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x9ca3D04Bdf90Ddc0074Ea57d3e2D331CD4b2d5a2",
+		"description": "solvBTC / BTC",
+		"decimals": 8,
+		"base": "0x3647c54c4c2C65bC7a2D63c0Da2809B399DBBDC0",
+		"quote": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f"
+	},
+	{
+		"aggregator": "0x383b3624478124697BEF675F07cA37570b73992f",
+		"description": "SPELL / USD",
+		"decimals": 8,
+		"base": "0x3E6648C5a70A150A88bCE65F4aD4d506Fe15d2AF",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x7A58648CAeA88e042767823723aF266DC6c4c4D9",
+		"description": "stBTC / BTC Exchange Rate",
+		"decimals": 18,
+		"base": "0xf6718b2701D4a6498eF77D7c152b2137Ab28b8A3",
+		"quote": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f"
+	},
+	{
+		"aggregator": "0xded2c52b75B24732e9107377B7Ba93eC1fFa4BAf",
+		"description": "STETH / ETH",
+		"decimals": 18,
+		"base": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+		"quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+	},
+	{
+		"aggregator": "0x07C5b924399cc23c24a95c8743DE4006a32b7f2a",
+		"description": "STETH / USD",
+		"decimals": 8,
+		"base": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xe74d69E233faB0d8F48921f2D93aDfDe44cEb3B7",
+		"description": "STG / USD",
+		"decimals": 8,
+		"base": "0x6694340fc020c5E6B96567843da2df01b2CE1eb6",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xf2215b9c35b1697B5f47e407c917a40D055E68d7",
+		"description": "sUSDe / USD",
+		"decimals": 8,
+		"base": "0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x605EA726F0259a30db5b7c9ef39Df9fE78665C44",
+		"description": "sUSDe / USDe Exchange Rate",
+		"decimals": 18,
+		"base": "0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2",
+		"quote": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34"
+	},
+	{
+		"aggregator": "0x2483326d19f780Fb082f333Fe124e4C075B207ba",
+		"description": "sUSDS / USDS Exchange Rate",
+		"decimals": 18,
+		"base": "0xdDb46999F8891663a8F2828d25298f70416d7610",
+		"quote": "0x6491c05A82219b8D1479057361ff1654749b876b"
+	},
+	{
+		"aggregator": "0xb2A8BA74cbca38508BA1632761b56C897060147C",
+		"description": "SUSHI / USD",
+		"decimals": 8,
+		"base": "0xd4d42F0b6DEF4CE0383636770eF773390d85c61A",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xe4c31C5B118d8aA92433eD1c7EC70afb430cd730",
+		"description": "TBTC / BTC",
+		"decimals": 8,
+		"base": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40",
+		"quote": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f"
+	},
+	{
+		"aggregator": "0xE808488e8627F6531bA79a13A9E0271B39abEb1C",
+		"description": "TBTC / USD",
+		"decimals": 8,
+		"base": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x98a977Ba31C72aeF2e15B950Eb5Ae3158863D856",
+		"description": "tETH / wstETH Exchange Rate",
+		"decimals": 18,
+		"base": "0xd09ACb80C1E8f2291862c4978A008791c9167003",
+		"quote": "0x5979D7b546E38E414F7E9822514be443A4800529"
+	},
+	{
+		"aggregator": "0x373510BDa1ab7e873c731968f4D81B685f520E4B",
+		"description": "TRUMP / USD",
+		"decimals": 8,
+		"base": "0x79489EAb35FcA14d216CADF41AC20792993f2A7c",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x6fAbee62266Da6686EE2744C6f15bb8352d2f28D",
+		"description": "TUSD / USD",
+		"decimals": 8,
+		"base": "0x4D15a3A2286D883AF0AA1B3f21367843FAc63E07",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x9C917083fDb403ab5ADbEC26Ee294f6EcAda2720",
+		"description": "UNI / USD",
+		"decimals": 8,
+		"base": "0xFa7F8980b0f1E64A2062791cc3b0871572f1F7f0",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xa677622735c38001fd1183c92dc5b889128EC234",
+		"description": "uniBTC / BTC Exchange Rate",
+		"decimals": 18,
+		"base": "0x6B2a01A5f79dEb4c2f3c0eDa7b01DF456FbD726a",
+		"quote": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f"
+	},
+	{
+		"aggregator": "0xF18BE32dB91591A7256d738C166FA195a17457DA",
+		"description": "uniETH / ETH Exchange Rate",
+		"decimals": 18,
+		"base": "0x3d15fD46CE9e551498328B1C83071D9509E2C3a0",
+		"quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+	},
+	{
+		"aggregator": "0x50834F3163758fcC1Df9973b6e91f0F0F0434aD3",
+		"description": "USDC / USD",
+		"decimals": 8,
+		"base": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x4Ee1f9ec1048979930aC832a3C1d18a0b4955a02",
+		"description": "USDD / USD",
+		"decimals": 8,
+		"base": "0x680447595e8b7b3Aa1B43beB9f6098C79ac2Ab3f",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x88AC7Bca36567525A866138F03a6F6844868E0Bc",
+		"description": "USDe / USD",
+		"decimals": 8,
+		"base": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x37833E5b3fbbEd4D613a3e0C354eF91A42B81eeB",
+		"description": "USDS / USD",
+		"decimals": 8,
+		"base": "0x6491c05A82219b8D1479057361ff1654749b876b",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x3f3f5dF88dC9F13eac63DF89EC16ef6e7E25DdE7",
+		"description": "USDT / USD",
+		"decimals": 8,
+		"base": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x20bAe7e1De9c596f5F7615aeaa1342Ba99294e12",
+		"description": "weETH / eETH Exchange Rate",
+		"decimals": 18,
+		"base": "0x35751007a407ca6FEFfE80b3cB397736D2cf4dbe",
+		"quote": "0x35fA164735182de50811E8e2E824cFb9B6118ac2"
+	},
+	{
+		"aggregator": "0xE141425bc1594b8039De6390db1cDaf4397EA22b",
+		"description": "weETH / ETH",
+		"decimals": 18,
+		"base": "0x35751007a407ca6FEFfE80b3cB397736D2cf4dbe",
+		"quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+	},
+	{
+		"aggregator": "0x5e2b5C5C07cCA3437c4D724225Bb42c7E55d1597",
+		"description": "WOO / USD",
+		"decimals": 8,
+		"base": "0xcAFcD85D8ca7Ad1e1C6F82F651fA15E33AEfD07b",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xb523AE262D20A936BC152e6023996e46FDC2A95D",
+		"description": "WSTETH / ETH",
+		"decimals": 18,
+		"base": "0x5979D7b546E38E414F7E9822514be443A4800529",
+		"quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+	},
+	{
+		"aggregator": "0xB1552C5e96B312d0Bf8b554186F846C40614a540",
+		"description": "wstETH-stETH Exchange Rate",
+		"decimals": 18,
+		"base": "0x5979D7b546E38E414F7E9822514be443A4800529",
+		"quote": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
+	},
+	{
+		"aggregator": "0x806c532D543352e7C344ba6C7F3F00Bfbd309Af1",
+		"description": "XAI / USD",
+		"decimals": 8,
+		"base": "0x4Cb9a7AE498CEDcBb5EAe9f25736aE7d428C9D66",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x300b0990Ba191a1AeBef6e5Ed8B5B308C0B2d0c9",
+		"description": "XVS / USD",
+		"decimals": 8,
+		"base": "0xc1Eb7689147C81aC840d4FF0D298489fc7986d52",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x745Ab5b69E01E2BE1104Ca84937Bb71f96f5fB21",
+		"description": "YFI / USD",
+		"decimals": 8,
+		"base": "0x82e3A8F066a6989666b031d916c43672085b1582",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x1940fEd49cDBC397941f2D336eb4994D599e568B",
+		"description": "ZRO / USD",
+		"decimals": 8,
+		"base": "0x6985884C4392D348587B19cb9eAAf157F13271cd",
+		"quote": "0x0000000000000000000000000000000000000348"
+	}
 ]

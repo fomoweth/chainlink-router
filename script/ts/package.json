@@ -5,7 +5,8 @@
 	"main": "fetch-feeds.ts",
 	"scripts": {
 		"build": "tsc",
-		"fetch": "npx ts-node fetch-feeds.ts"
+		"fetch": "npx ts-node fetch-feeds.ts",
+		"extract": "npx ts-node extract-feeds.ts"
 	},
 	"dependencies": {
 		"ethers": "^6.15.0"
