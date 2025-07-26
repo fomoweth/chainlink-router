@@ -50,16 +50,16 @@ interface IChainlinkRouter {
 	/// @param assetId The unique identifier that was assigned to the asset
 	event AssetRemoved(address indexed asset, uint256 indexed assetId);
 
-	/// @notice Emitted when a new price feed is registered
+	/// @notice Emitted when a new price feed is registered in the system
 	/// @param feed The address of the Chainlink aggregator contract
 	/// @param base The address of the base asset in the price pair
 	/// @param quote The address of the quote asset in the price pair
-	event FeedAdded(address indexed feed, address indexed base, address indexed quote);
+	event FeedRegistered(address indexed feed, address indexed base, address indexed quote);
 
-	/// @notice Emitted when a price feed is removed from the registry
+	/// @notice Emitted when a price feed is deregistered from the system
 	/// @param base The address of the base asset in the removed price pair
 	/// @param quote The address of the quote asset in the removed price pair
-	event FeedRemoved(address indexed base, address indexed quote);
+	event FeedDeregistered(address indexed base, address indexed quote);
 
 	/// @notice Queries optimal price path between two assets and returns the calculated price
 	/// @dev Uses breadth-first search algorithm to discover shortest routing path

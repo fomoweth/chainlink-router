@@ -1,0 +1,19 @@
+{
+	"name": "chainlink-feeds-fetcher",
+	"version": "1.0.0",
+	"description": "Fetch and process Chainlink feed data",
+	"main": "fetch-feeds.ts",
+	"scripts": {
+		"build": "tsc",
+		"fetch": "npx ts-node fetch-feeds.ts",
+		"extract": "npx ts-node extract-feeds.ts"
+	},
+	"dependencies": {
+		"ethers": "^6.15.0"
+	},
+	"devDependencies": {
+		"@types/node": "^24.1.0",
+		"tsx": "^4.20.3",
+		"typescript": "^5.8.3"
+	}
+}
