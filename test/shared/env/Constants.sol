@@ -4,6 +4,12 @@ pragma solidity ^0.8.30;
 abstract contract Constants {
 	bytes32 internal constant INITIALIZED_SLOT = 0xeb0c2ce5f191d27e756051385ba4f8f2e0c18127de8ff7207a5891e3b49bb400;
 
+	uint256 internal constant ETHEREUM_FORK_BLOCK = 23003343;
+	uint256 internal constant OPTIMISM_FORK_BLOCK = 138967199;
+	uint256 internal constant POLYGON_FORK_BLOCK = 74432493;
+	uint256 internal constant BASE_FORK_BLOCK = 33371911;
+	uint256 internal constant ARBITRUM_FORK_BLOCK = 361762958;
+
 	address internal constant ETH = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;
 	address internal constant BTC = 0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB;
 	address internal constant USD = 0x0000000000000000000000000000000000000348;

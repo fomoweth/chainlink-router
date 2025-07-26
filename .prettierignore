@@ -2,3 +2,4 @@ foundry.toml
 out/
 lib/
 cache/
+.github/
