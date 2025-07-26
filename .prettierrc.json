@@ -13,6 +13,7 @@
 		{
 			"files": ["*.ts", "*.js", "*.json"],
 			"options": {
+				"printWidth": 100,
 				"tabWidth": 4,
 				"useTabs": true,
 				"singleQuote": false
