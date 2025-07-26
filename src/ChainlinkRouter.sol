@@ -57,7 +57,6 @@ contract ChainlinkRouter is IChainlinkRouter, Initializable, Ownable {
 	uint256 private constant STORAGE_SLOT = 0xb4b1a749a23d159bc5ca72fecf3e094397bd4f0cb6afce4c7164622c60453c00;
 
 	/// @notice Maximum number of assets supported by the system
-	///	@dev Limited by BitMap implementation which uses uint256 (256 bits)
 	uint256 internal constant MAX_ASSETS = 256;
 
 	/// @notice Maximum number of hops allowed in a price routing path
@@ -74,30 +73,12 @@ contract ChainlinkRouter is IChainlinkRouter, Initializable, Ownable {
 		_disableInitializers();
 	}
 
-	/// @notice Initializes the contract with an initial owner and a batch of feed configurations
-	/// @param params Packed bytes containing initialOwner and feed configurations (20 bytes each for feed, base, quote)
-	function initialize(bytes calldata params) external initializer {
-		// Set initial owner
-		address initialOwner;
-		(initialOwner, params) = params.parseAddress();
+	/// @notice Initializes the contract by setting the owner and registering USD
+	/// @param initialOwner The address that will be granted ownership of the contract
+	function initialize(address initialOwner) external initializer {
 		_checkNewOwner(initialOwner);
 		_setOwner(initialOwner);
-
-		Storage storage $ = _getStorage();
-
-		// Register USD as the primary reference asset with ID 0
-		_registerAsset($, Denominations.USD);
-
-		address feed;
-		address base;
-		address quote;
-
-		// Process all initial feed configurations
-		while (true) {
-			if (params.length == 0) return;
-			(feed, base, quote, params) = params.parseFeedParams();
-			_registerFeed($, feed, base, quote);
-		}
+		_registerAsset(_getStorage(), Denominations.USD);
 	}
 
 	/// @inheritdoc IChainlinkRouter
@@ -107,7 +88,6 @@ contract ChainlinkRouter is IChainlinkRouter, Initializable, Ownable {
 		address base;
 		address quote;
 
-		// Process all feed configurations in the calldata
 		while (true) {
 			if (params.length == 0) return;
 			(feed, base, quote, params) = params.parseFeedParams();
@@ -121,7 +101,6 @@ contract ChainlinkRouter is IChainlinkRouter, Initializable, Ownable {
 		address base;
 		address quote;
 
-		// Process all asset pairs to deregister
 		while (true) {
 			if (params.length == 0) return;
 			(base, quote, params) = params.parseAssetPair();
@@ -164,7 +143,7 @@ contract ChainlinkRouter is IChainlinkRouter, Initializable, Ownable {
 		// Store the feed configuration with all necessary metadata
 		$.feeds[base][quote] = toFeedConfig(feed, baseId, base.decimals(), quoteId, quote.decimals());
 
-		emit FeedAdded(feed, base, quote);
+		emit FeedRegistered(feed, base, quote);
 	}
 
 	/// @notice Internal function to deregister a price feed
@@ -187,7 +166,7 @@ contract ChainlinkRouter is IChainlinkRouter, Initializable, Ownable {
 		// Clear the feed configuration
 		$.feeds[base][quote] = FeedConfig.wrap(0);
 
-		emit FeedRemoved(base, quote);
+		emit FeedDeregistered(base, quote);
 	}
 
 	/// @notice Internal function to register a new asset
@@ -473,7 +452,6 @@ contract ChainlinkRouter is IChainlinkRouter, Initializable, Ownable {
 
 			// Swap decimal configuration to match the inverted price direction
 			// This ensures proper decimal handling in subsequent calculations
-			// (baseDecimals, quoteDecimals) = (quoteDecimals, baseDecimals);
 			quoteDecimals = baseDecimals;
 		}
 
