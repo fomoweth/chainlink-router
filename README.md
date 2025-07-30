@@ -20,7 +20,7 @@ If a direct price feed doesn’t exist, the router derives the price through int
 
 ## Deployment
 
-You can checkout the deployment information [here](./depolyments/index.md)
+You can checkout the deployment information [here](https://github.com/fomoweth/chainlink-router/blob/main/deployments/index.md)
 
 ### Usage
 
