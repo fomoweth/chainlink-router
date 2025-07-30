@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+import { readFileSync, writeFileSync } from "fs";
+import { join } from "path";
 
 import { CHAINS } from "./constants";
 import { FeedMetadata, FeedModel, TokenModel } from "./types";
@@ -8,7 +8,7 @@ const main = async () => {
 	const argument = process.argv[2];
 
 	const chain = CHAINS.find(({ chainAlias, chainId }) =>
-		isNaN(+argument) ? chainAlias === argument : chainId === parseInt(argument)
+		!!isNaN(+argument) ? chainAlias === argument : chainId === +argument
 	);
 
 	if (!chain) {
@@ -16,17 +16,17 @@ const main = async () => {
 		process.exit(1);
 	}
 
-	const tokens: TokenModel[] = JSON.parse(
-		fs.readFileSync(path.join(__dirname, `../../config/tokens/${chain.chainId}.json`), "utf-8")
+	const tokens = <Array<TokenModel>>(
+		JSON.parse(readFileSync(join(__dirname, `../../config/tokens/${chain.chainId}.json`), "utf-8"))
 	);
 
 	const res = await fetch(chain.rddUrl);
-	const data: FeedMetadata[] = await res.json();
+	const data = (await res.json()) as Array<FeedMetadata>;
 
 	const cached: Set<string> = new Set();
 
-	const feeds: FeedModel[] = data
-		.reduce((acc, { decimals, feedType, name: description, path, proxyAddress: aggregator }) => {
+	const feeds = data
+		.reduce((acc: Array<FeedModel>, { decimals, feedType, name: description, path, proxyAddress: aggregator }) => {
 			if (!!aggregator && feedType === "Crypto") {
 				path = path
 					.replace("calc-", "")
@@ -54,10 +54,10 @@ const main = async () => {
 			}
 
 			return acc;
-		}, [] as FeedModel[])
+		}, [])
 		.sort((a, b) => (a.description.toLowerCase() < b.description.toLowerCase() ? -1 : 1));
 
-	fs.writeFileSync(path.join(__dirname, `../../config/feeds/${chain.chainId}.json`), JSON.stringify(feeds, null, 4));
+	writeFileSync(join(__dirname, `../../config/feeds/${chain.chainId}.json`), JSON.stringify(feeds, null, 4));
 
 	console.log(`\n${feeds.length} feeds saved\n`);
 };
