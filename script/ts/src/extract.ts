@@ -639,18 +639,8 @@ const prepareArtifacts = (): void => {
 	execSync("forge build");
 };
 
-const printHelp = (): void => {
-	console.log(
-		"\nUsage: node lib/forge-chronicles <scriptName> [-c chain | multi] [-s skip-json] [-b broadcast-dir] [-o out-dir]\n\nCommands:\n  -c, --chain\t\tChain ID of the network where the script was executed or 'multi' for multi-deployment (default: multi)\n  -s, --skip\t\tSkips the json generation and creates the markdown file using an existing json file\n  -f, --force\t\t\tForce the generation of the json file with the same commit\n\nOptions:\n  -h, --help\t\t\tPrint help\n"
-	);
-};
-
 const validateAndExtractInputs = (): CLIArguments => {
 	const args = process.argv.slice(2);
-	if (args[0] === "-h" || args[0] === "--help") {
-		printHelp();
-		process.exit(0);
-	}
 
 	let chain = "multi";
 	let scriptName = "Deploy.s.sol";
@@ -699,7 +689,6 @@ const validateAndExtractInputs = (): CLIArguments => {
 				break;
 
 			default:
-				printHelp();
 				process.exit(1);
 		}
 	}
