@@ -9,14 +9,18 @@ If a direct price feed doesn’t exist, the router derives the price through int
 
 ### Key Features
 
-- **Direct and Multi-Hop Price Resolution**
-  Automatically finds the shortest feed path between two assets using a breadth-first traversal
-- **Price Derivation Engine**
-  Supports derived price computation (A/B = A/C \* C/B), feed inversion, and precision normalization
-- **Bitmap-Based Graph Storage**
-  Assets are tracked in a paged bitmap structure for efficient gas usage and scalable pathfinding
-- **Batch Feed and Asset Management**
-  Efficiently register or deregister multiple feeds in single transactions
+-   **Direct and Multi-Hop Price Resolution**
+    Automatically finds the shortest feed path between two assets using a breadth-first traversal
+-   **Price Derivation Engine**
+    Supports derived price computation (A/B = A/C \* C/B), feed inversion, and precision normalization
+-   **Bitmap-Based Graph Storage**
+    Assets are tracked in a paged bitmap structure for efficient gas usage and scalable pathfinding
+-   **Batch Feed and Asset Management**
+    Efficiently register or deregister multiple feeds in single transactions
+
+## Deployment
+
+You can checkout the deployment information [here](./depolyments/index.md)
 
 ### Usage
 
@@ -96,13 +100,13 @@ Finds optimal price path and calculates final price.
 
 **Parameters:**
 
-- `base` - Base asset address to price
-- `quote` - Quote asset address to price against
+-   `base` - Base asset address to price
+-   `quote` - Quote asset address to price against
 
 **Returns:**
 
-- `path` - Array of feed addresses used in routing
-- `answer` - Calculated price with proper decimal scaling
+-   `path` - Array of feed addresses used in routing
+-   `answer` - Calculated price with proper decimal scaling
 
 #### `queryFeed(address base, address quote)`
 
@@ -110,7 +114,7 @@ Gets feed address for asset pair (bidirectional search).
 
 **Returns:**
 
-- `feed` - Chainlink aggregator address or `address(0)` if not found
+-   `feed` - Chainlink aggregator address or `address(0)` if not found
 
 #### `register(bytes calldata params)`
 
@@ -118,7 +122,7 @@ Registers multiple feeds in batch format.
 
 **Parameters:**
 
-- `params` - Packed bytes: `[feed1][base1][quote1][feed2][base2][quote2]...`
+-   `params` - Packed bytes: `[feed1][base1][quote1][feed2][base2][quote2]...`
 
 #### `deregister(bytes calldata params)`
 
@@ -126,7 +130,7 @@ Deregisters multiple feeds in batch format and cleans up unused assets.
 
 **Parameters:**
 
-- `params` - Packed bytes: `[base1][quote1][base2][quote2]...`
+-   `params` - Packed bytes: `[base1][quote1][base2][quote2]...`
 
 #### `registerAsset(address asset)`
 
@@ -134,7 +138,7 @@ Registers a single asset in the system.
 
 **Parameters:**
 
-- `asset` - Address of the asset to register
+-   `asset` - Address of the asset to register
 
 #### `deregisterAsset(address asset)`
 
@@ -142,7 +146,7 @@ Deregisters an asset and removes all associated feeds.
 
 **Parameters:**
 
-- `asset` - Address of the asset to deregister
+-   `asset` - Address of the asset to deregister
 
 **Note:** USD cannot be deregistered as it serves as the primary reference currency.
 
@@ -177,10 +181,10 @@ forge test --match-path test/ChainlinkRouter.t.sol
 
 ### Known Limitations
 
-- Maximum 256 assets due to BitMap constraints
-- Dependent on Chainlink feed reliability and freshness
-- Gas costs increase with routing complexity
-- Requires manual feed registration and maintenance
+-   Maximum 256 assets due to BitMap constraints
+-   Dependent on Chainlink feed reliability and freshness
+-   Gas costs increase with routing complexity
+-   Requires manual feed registration and maintenance
 
 ## FAQ
 
@@ -205,21 +209,11 @@ The router automatically normalizes decimal places across different assets. Each
 
 </details>
 
-## Deployment
-
-**ChainlinkRouter** is deployed on the following chains:
-
-| Network          | Implementation                                                                                                                | Proxy                                                                                                                         |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Sepolia          | [0x4c64F98969c6331C8AD934e857914D3104a42809](https://sepolia.etherscan.io/address/0x4c64F98969c6331C8AD934e857914D3104a42809) | [0xFa71F0f28D7B27E590173c7E8214F855612E0D5b](https://sepolia.etherscan.io/address/0xFa71F0f28D7B27E590173c7E8214F855612E0D5b) |
-| Arbitrum Sepolia | [0x4c64F98969c6331C8AD934e857914D3104a42809](https://sepolia.arbiscan.io/address/0x4c64F98969c6331C8AD934e857914D3104a42809)  | [0xE80049700C9d1Ee7135a2FfB5b1Cfe28cE141bda](https://sepolia.arbiscan.io/address/0xE80049700C9d1Ee7135a2FfB5b1Cfe28cE141bda)  |
-| Base Sepolia     | [0x4c64F98969c6331C8AD934e857914D3104a42809](https://sepolia.basescan.org/address/0x4c64F98969c6331C8AD934e857914D3104a42809) | [0xD1af8CEb001ABC934c86E7d42c4f06D33168a09C](https://sepolia.basescan.org/address/0xD1af8CEb001ABC934c86E7d42c4f06D33168a09C) |
-
 ## Resources
 
-- [Chainlink Price Feeds Doc](https://docs.chain.link/data-feeds/price-feeds)
-- [Chainlink Data Feeds](https://data.chain.link/feeds)
+-   [Chainlink Price Feeds Doc](https://docs.chain.link/data-feeds/price-feeds)
+-   [Chainlink Data Feeds](https://data.chain.link/feeds)
 
 ## Author
 
-- [@fomoweth](https://github.com/fomoweth)
+-   [@fomoweth](https://github.com/fomoweth)
