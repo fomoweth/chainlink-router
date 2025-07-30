@@ -21,6 +21,13 @@
 		"quote": "0x4200000000000000000000000000000000000006"
 	},
 	{
+		"aggregator": "0x48f2EcF0Bd180239AEF474a9da945F2e2d41daA3",
+		"description": "APT / USD",
+		"decimals": 8,
+		"base": "0xC5B3AC2DF8D8D7AC851F763a5b3Ff23B4A696d59",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
 		"aggregator": "0x30D9d31C1ac29Bc2c2c312c1bCa9F8b3D60e2376",
 		"description": "BAL / USD",
 		"decimals": 8,
@@ -168,6 +175,13 @@
 		"quote": "0x0000000000000000000000000000000000000348"
 	},
 	{
+		"aggregator": "0x64Ecf089a6594Be781908D5a26FC8fA6CB08A2C7",
+		"description": "PEPE / USD",
+		"decimals": 18,
+		"base": "0xC1c167CC44f7923cd0062c4370Df962f9DDB16f5",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
 		"aggregator": "0xA12CDDd8e986AF9288ab31E58C60e65F2987fB13",
 		"description": "PERP / USD",
 		"decimals": 8,
@@ -203,6 +217,13 @@
 		"quote": "0x4200000000000000000000000000000000000006"
 	},
 	{
+		"aggregator": "0x50f8cf458E7334Be143f3c9F1f1577EE37A45653",
+		"description": "SATS / USD",
+		"decimals": 18,
+		"base": "0x9d36F8f62347538440a212e9162f534f797542df",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
 		"aggregator": "0xd2AdD08d9Cd83720c9296A991ce066BB08265eAc",
 		"description": "sfrxETH / frxETH-Exchange-Rate",
 		"decimals": 18,
@@ -214,6 +235,13 @@
 		"description": "SNX / USD",
 		"decimals": 8,
 		"base": "0x8700dAec35aF8Ff88c16BdF0418774CB3D7599B4",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xC663315f7aF904fbbB0F785c32046dFA03e85270",
+		"description": "SOL / USD",
+		"decimals": 8,
+		"base": "0xba1Cf949c382A32a09A17B2AdF3587fc7fA664f1",
 		"quote": "0x0000000000000000000000000000000000000348"
 	},
 	{
@@ -245,10 +273,24 @@
 		"quote": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34"
 	},
 	{
+		"aggregator": "0x72155D46FD9f03AF1739637F9E7Db8A87C40A730",
+		"description": "SUSHI / USD",
+		"decimals": 8,
+		"base": "0x3eaEb77b03dBc0F6321AE1b72b2E9aDb0F60112B",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
 		"aggregator": "0x5a61374950D4BFa5a3D4f2CA36FC1d23A92b6f21",
 		"description": "TBTC / USD",
 		"decimals": 8,
 		"base": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0x0E09921cf7801A5aD47B892C8727593275625a9f",
+		"description": "TRX / USD",
+		"decimals": 8,
+		"base": "0xb1aE0a34DC3976d98C1741C92b798dAF8E0e1e11",
 		"quote": "0x0000000000000000000000000000000000000348"
 	},
 	{
@@ -340,6 +382,13 @@
 		"description": "YFI / USD",
 		"decimals": 8,
 		"base": "0x9046D36440290FfDE54FE0DD84Db8b1CfEE9107B",
+		"quote": "0x0000000000000000000000000000000000000348"
+	},
+	{
+		"aggregator": "0xBfbb4fE2fB71022DbFE0D4232c8C528bddf9c57f",
+		"description": "ZRX / USD",
+		"decimals": 8,
+		"base": "0xD1917629B3E6A72E6772Aab5dBe58Eb7FA3C2F33",
 		"quote": "0x0000000000000000000000000000000000000348"
 	}
 ]

@@ -1,0 +1,35 @@
+{
+    "chainId": 8453,
+    "latest": {
+        "ChainlinkRouter": {
+            "address": "0xbB4a04e5F24127440fA933343F2b34f309AebdDe",
+            "hash": "0x329fa2332bf9cce09a2549a211785d5f634cb908d2059fa9a854f059430cc6f6",
+            "implementation": "0xb3ECC837740F716557BF410BBfcBf24353cB57c9",
+            "proxy": true,
+            "proxyAdmin": "0xCDCA5Aae0f48cdFAF5D668e6C86bA309938A7f2d",
+            "version": "1",
+            "timestamp": 1753525414,
+            "commit": "e9531ff"
+        }
+    },
+    "history": [
+        {
+            "contracts": {
+                "ChainlinkRouter": {
+                    "address": "0xbB4a04e5F24127440fA933343F2b34f309AebdDe",
+                    "hash": "0x329fa2332bf9cce09a2549a211785d5f634cb908d2059fa9a854f059430cc6f6",
+                    "implementation": "0xb3ECC837740F716557BF410BBfcBf24353cB57c9",
+                    "proxy": true,
+                    "proxyAdmin": "0xCDCA5Aae0f48cdFAF5D668e6C86bA309938A7f2d",
+                    "version": "1",
+                    "input": {
+                        "constructor": {},
+                        "initializer": "0xc4d66de80000000000000000000000007f3119f15153b353c2a903468b84899b1ac207bb"
+                    }
+                }
+            },
+            "timestamp": 1753525414,
+            "commit": "e9531ff"
+        }
+    ]
+}

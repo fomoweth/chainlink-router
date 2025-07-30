@@ -32,7 +32,7 @@
 	{
 		"address": "0x9c0e042d65a2e1fF31aC83f404E5Cb79F452c337",
 		"symbol": "APT",
-		"decimals": 18
+		"decimals": 8
 	},
 	{
 		"address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
@@ -92,11 +92,6 @@
 	{
 		"address": "0x69Eb4FA4a2fbd498C257C57Ea8b7655a2559A581",
 		"symbol": "DODO",
-		"decimals": 18
-	},
-	{
-		"address": "0x35fA164735182de50811E8e2E824cFb9B6118ac2",
-		"symbol": "eETH",
 		"decimals": 18
 	},
 	{
@@ -277,11 +272,6 @@
 	{
 		"address": "0xf6718b2701D4a6498eF77D7c152b2137Ab28b8A3",
 		"symbol": "stBTC",
-		"decimals": 18
-	},
-	{
-		"address": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
-		"symbol": "stETH",
 		"decimals": 18
 	},
 	{

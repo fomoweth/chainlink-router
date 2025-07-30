@@ -5,10 +5,12 @@
 	"main": "fetch-feeds.ts",
 	"scripts": {
 		"build": "tsc",
-		"fetch": "npx ts-node fetch-feeds.ts",
-		"extract": "npx ts-node extract-feeds.ts"
+		"fetch": "npx ts-node src/fetch-feeds.ts",
+		"encode": "npx ts-node src/encode-feeds.ts",
+		"extract": "npx ts-node src/extract.ts"
 	},
 	"dependencies": {
+		"dotenv": "^17.2.1",
 		"ethers": "^6.15.0"
 	},
 	"devDependencies": {
