@@ -1,28 +1,166 @@
 # ChainlinkRouter
 
-> A price oracle router that aggregates and derives price feeds using Chainlink Aggregators
+> A price oracle router that aggregates and derives price feeds using Chainlink Aggregators.
 
 ## Overview
 
 ChainlinkRouter is an on-chain oracle routing system that provides dynamic price discovery across token pairs using Chainlink Aggregators.
 If a direct price feed doesn’t exist, the router derives the price through intermediate assets using multi-hop pathfinding logic.
 
-### Key Features
+## Key Features
 
--   **Direct and Multi-Hop Price Resolution**
-    Automatically finds the shortest feed path between two assets using a breadth-first traversal
--   **Price Derivation Engine**
-    Supports derived price computation (A/B = A/C \* C/B), feed inversion, and precision normalization
--   **Bitmap-Based Graph Storage**
-    Assets are tracked in a paged bitmap structure for efficient gas usage and scalable pathfinding
--   **Batch Feed and Asset Management**
-    Efficiently register or deregister multiple feeds in single transactions
+-   **ERC-7201 Storage Pattern**: Uses namespaced storage for proxy upgrade compatibility
+-   **Direct and Multi-Hop Price Resolution**: Automatically finds the shortest feed path between two assets using a breadth-first traversal
+-   **Price Derivation Engine**: Supports derived price computation (A/B = A/C \* C/B), feed inversion, and precision normalization
+-   **Bitmap-Based Graph Storage**: Assets are tracked in a paged bitmap structure for efficient gas usage and scalable pathfinding
+-   **Batch Feed and Asset Management**: Efficiently register or deregister multiple feeds in single transactions
+
+## Architectural Decisions
+
+-   **Gas Optimization Focus**:
+
+    -   Assembly-optimized bitmap operations
+    -   Packed structs to minimize storage slots
+    -   Batch operations for feed management
+
+-   **Scalability Considerations**:
+
+    -   256-asset limit designed for efficient BitMap operations
+    -   Maximum 4-hop routing to prevent excessive gas usage
+    -   Lazy asset cleanup to minimize transaction costs
+
+-   **Security & Reliability**:
+    -   Comprehensive input validation
+    -   Price sanity checks (positive values only)
+    -   Automatic asset cleanup when feeds are removed
 
 ## Deployment
 
-You can checkout the deployment information [here](https://github.com/fomoweth/chainlink-router/blob/main/deployments/index.md)
+ChainlinkRouter is deployed on Ethereum, Optimism, Base, and Arbitrum One.
 
-### Usage
+You can checkout the deployment information [here](https://github.com/fomoweth/chainlink-router/blob/main/deployments/index.md).
+
+## Directory Structure
+
+All contracts are held within the `chainlink-router/src` folder.
+
+```text
+chainlink-router/
+├── config/
+│   ├── feeds/...
+│   └── tokens/...
+├── deployments/...
+├── script/
+│   ├── Deploy.s.sol
+│   ├── Register.s.sol
+│   └── ts/
+│       └── src
+│           ├── ...
+│           ├── encode-feeds.ts
+│           ├── extract.ts
+│           └── fetch-feeds.ts
+├── src/
+│   ├── base/
+│   │   ├── Initializable.sol
+│   │   └── Ownable.sol
+│   ├── interfaces/
+│   │   ├── external
+│   │   │   └── AggregatorInterface.sol
+│   │   └── IChainlinkRouter.sol
+│   ├── libraries/
+│   │   ├── BytesParser.sol
+│   │   ├── Denominations.sol
+│   │   ├── FullMath.sol
+│   │   └── PriceMath.sol
+│   ├── types/
+│   │   ├── BitMap.sol
+│   │   └── FeedConfig.sol
+│   └── ChainlinkRouter.sol
+└── test/
+    ├── ...
+    └── ChainlinkRouter.t.sol
+```
+
+### Core Contracts
+
+**ChainlinkRouter**: The centerpiece contract implementing a sophisticated price routing engine
+
+**BytesParser**: Efficient batch parameter parsing for feed registration
+
+**PriceMath**: Price inversion, derivation, and decimal normalization
+
+**BitMap**: Custom 256-bit bitmap with assembly-optimized operations
+
+**FeedConfig**: Packed struct containing feed metadata (160-bit address + 96-bit config)
+
+### TypeScript Tooling Ecosystem
+
+Utilities in `script/ts/`:
+
+-   **Feed Management**: fetch-feeds.ts pulls live Chainlink data
+-   **Data Encoding**: encode-feeds.ts prepares batch registration parameters
+-   **Deployment Extraction**: extract.ts generates deployment documentation from broadcast results
+
+## API Reference
+
+### Core Functions
+
+`query(address base, address quote)`: Finds optimal price path and calculates final price.
+
+Parameters:
+
+-   `base` - Base asset address to price
+-   `quote` - Quote asset address to price against
+
+Returns:
+
+-   `path` - Array of feed addresses used in routing
+-   `answer` - Calculated price with proper decimal scaling
+
+`queryFeed(address base, address quote)`: Gets feed address for asset pair (bidirectional search).
+
+Returns:
+
+-   `feed` - Chainlink aggregator address or `address(0)` if not found
+
+`register(bytes calldata params)`: Registers multiple feeds in batch format.
+
+Parameters:
+
+-   `params` - Packed bytes: `[feed1][base1][quote1][feed2][base2][quote2]...`
+
+`deregister(bytes calldata params)`: Deregisters multiple feeds in batch format and cleans up unused assets.
+
+Parameters:
+
+-   `params` - Packed bytes: `[base1][quote1][base2][quote2]...`
+
+`registerAsset(address asset)`: Registers a single asset in the system.
+
+Parameters:
+
+-   `asset` - Address of the asset to register
+
+`deregisterAsset(address asset)`: Deregisters an asset and removes all associated feeds.
+
+Parameters:
+
+-   `asset` - Address of the asset to deregister
+
+**USD cannot be deregistered as it serves as the primary reference currency.**
+
+### View Functions
+
+| Function                                            | Description             | Returns                |
+| --------------------------------------------------- | ----------------------- | ---------------------- |
+| `getFeed(address base, address quote)`              | Feed address            | `address`              |
+| `getFeedConfiguration(address base, address quote)` | Complete feed config    | `FeedConfig (uint256)` |
+| `getAsset(uint256 id)`                              | Asset address from ID   | `address`              |
+| `getAssetConfiguration(address asset)`              | Asset's connections     | `BitMap (uint256)`     |
+| `getAssetId(address asset)`                         | Asset ID from address   | `uint256`              |
+| `numAssets()`                                       | Total registered assets | `uint256`              |
+
+## Usage
 
 ```solidity
 // Query ETH/BTC price (may route through USD)
@@ -35,7 +173,31 @@ bool hasDirect = router.queryFeed(WETH_ADDRESS, USD_ADDRESS) != address(0);
 BitMap connections = router.getAssetConfiguration(WETH_ADDRESS);
 ```
 
-### Registration Example
+### Routing Examples
+
+**Direct Path (single-hop)**
+
+```
+ETH ──[ETH/USD Feed]──> USD
+Price: 8000 USD per ETH
+```
+
+**Two-hop Path**
+
+```
+ETH ──[ETH/USD]──> USD ──[USD/BTC]──> BTC
+Calculation: ETH/USD ÷ BTC/USD = ETH/BTC
+Result: 8000 ÷ 160000 = 0.05 BTC per ETH
+```
+
+**Complex Multi-hop**
+
+```
+TokenA ──[A/USD]──> USD ──[USD/ETH]──> ETH ──[ETH/B]──> TokenB
+Automatic pathfinding through optimal intermediate assets
+```
+
+**Registration Example**
 
 ```solidity
 // https://en.wikipedia.org/wiki/ISO_4217
@@ -66,120 +228,7 @@ bytes memory params = abi.encodePacked(
 router.deregister(params);
 ```
 
-### Routing Examples
-
-#### Direct Path (1 hop)
-
-```
-ETH ──[ETH/USD Feed]──> USD
-Price: 8000 USD per ETH
-```
-
-#### Two-hop Path
-
-```
-ETH ──[ETH/USD]──> USD ──[USD/BTC]──> BTC
-Calculation: ETH/USD ÷ BTC/USD = ETH/BTC
-Result: 8000 ÷ 160000 = 0.05 BTC per ETH
-```
-
-#### Complex Multi-hop
-
-```
-TokenA ──[A/USD]──> USD ──[USD/ETH]──> ETH ──[ETH/B]──> TokenB
-Automatic pathfinding through optimal intermediate assets
-```
-
-## API Reference
-
-### Core Functions
-
-#### `query(address base, address quote)`
-
-Finds optimal price path and calculates final price.
-
-**Parameters:**
-
--   `base` - Base asset address to price
--   `quote` - Quote asset address to price against
-
-**Returns:**
-
--   `path` - Array of feed addresses used in routing
--   `answer` - Calculated price with proper decimal scaling
-
-#### `queryFeed(address base, address quote)`
-
-Gets feed address for asset pair (bidirectional search).
-
-**Returns:**
-
--   `feed` - Chainlink aggregator address or `address(0)` if not found
-
-#### `register(bytes calldata params)`
-
-Registers multiple feeds in batch format.
-
-**Parameters:**
-
--   `params` - Packed bytes: `[feed1][base1][quote1][feed2][base2][quote2]...`
-
-#### `deregister(bytes calldata params)`
-
-Deregisters multiple feeds in batch format and cleans up unused assets.
-
-**Parameters:**
-
--   `params` - Packed bytes: `[base1][quote1][base2][quote2]...`
-
-#### `registerAsset(address asset)`
-
-Registers a single asset in the system.
-
-**Parameters:**
-
--   `asset` - Address of the asset to register
-
-#### `deregisterAsset(address asset)`
-
-Deregisters an asset and removes all associated feeds.
-
-**Parameters:**
-
--   `asset` - Address of the asset to deregister
-
-**Note:** USD cannot be deregistered as it serves as the primary reference currency.
-
-### View Functions
-
-| Function                                            | Description             | Returns      |
-| --------------------------------------------------- | ----------------------- | ------------ |
-| `getFeed(address base, address quote)`              | Feed address            | `address`    |
-| `getFeedConfiguration(address base, address quote)` | Complete feed config    | `FeedConfig` |
-| `getAsset(uint256 id)`                              | Asset address from ID   | `address`    |
-| `getAssetConfiguration(address asset)`              | Asset's connections     | `BitMap`     |
-| `getAssetId(address asset)`                         | Asset ID from address   | `uint256`    |
-| `numAssets()`                                       | Total registered assets | `uint256`    |
-
-## Testing
-
-### Run Test Suite
-
-```bash
-# Run all tests
-forge test
-
-# Run with detailed traces
-forge test -vvv
-
-# Run with gas reporting
-forge test --gas-report
-
-# Run specific test file
-forge test --match-path test/ChainlinkRouter.t.sol
-```
-
-### Known Limitations
+## Known Limitations
 
 -   Maximum 256 assets due to BitMap constraints
 -   Dependent on Chainlink feed reliability and freshness
@@ -208,6 +257,22 @@ The router will revert the transaction with detailed error information. It valid
 The router automatically normalizes decimal places across different assets. Each feed stores metadata about base and quote asset decimals, and the PriceMath library handles conversions to ensure consistent pricing regardless of underlying asset decimal configurations.
 
 </details>
+
+## Test
+
+```bash
+# Run all tests
+forge test
+
+# Run with detailed traces
+forge test -vvv
+
+# Run with gas reporting
+forge test --gas-report
+
+# Run specific test file
+forge test --match-path test/ChainlinkRouter.t.sol
+```
 
 ## Resources
 
