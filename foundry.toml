@@ -9,16 +9,17 @@ bytecode_hash = "none"
 cbor_metadata = false
 dynamic_test_linking = true
 ffi = true
+ignored_error_codes = [2394]
 optimizer = true
 optimizer_runs = 1000000
+verbosity = 2
 via_ir = true
 
 fs_permissions = [
-    { access = "read-write", path = "./config"},
-    { access = "read-write", path = "./deployments"},
-    { access = "read", path = "./out"},
-	{ access = "read", path = "./script" },
-    { access = "read", path = "./test"}
+    { access = "read-write", path = "config" },
+    { access = "read-write", path = "deployments" },
+    { access = "read", path = "out" },
+	{ access = "read", path = "script" }
 ]
 
 gas_reports = ["ChainlinkRouter"]
@@ -26,12 +27,22 @@ gas_reports = ["ChainlinkRouter"]
 remappings = [
     "forge-std/=lib/forge-std/src/",
     "@openzeppelin/=lib/openzeppelin-contracts/contracts",
-    "@proxy-forge/=lib/proxy-forge/src/"
+    "proxy-forge/=lib/proxy-forge/src/"
 ]
 
 [fuzz]
 runs = 1000
-max_test_rejects = 1000000
+
+[fmt]
+line_length = 120
+tab_width = 4
+quote_style = "double"
+func_attrs_with_params_multiline = true
+inline_attribute_style = "compact"
+return_statement = "inline"
+
+[lint]
+lint_on_build = false
 
 [rpc_endpoints]
 ethereum = "${RPC_ETHEREUM}"

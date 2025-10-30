@@ -13,4 +13,8 @@ docs/
 # Dotenv file
 .env
 
+# OS files
+.DS_Store
+
+# NPM
 node_modules

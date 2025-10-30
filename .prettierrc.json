@@ -3,12 +3,12 @@
 	"tabWidth": 4,
 	"useTabs": true,
 	"singleQuote": false,
+	"bracketSpacing": true,
+	"trailingComma": "all",
 	"overrides": [
 		{
-			"files": "*.sol",
-			"options": {
-				"bracketSpacing": false
-			}
+			"files": ["*.ts", "*.js", "*.json"],
+			"options": {}
 		}
 	]
 }

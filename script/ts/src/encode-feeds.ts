@@ -20,9 +20,9 @@ const main = async () => {
 		(acc, { aggregator, base, quote }) =>
 			solidityPacked(
 				["bytes", "bytes"],
-				[acc, solidityPacked(["address", "address", "address"], [aggregator, base, quote])]
+				[acc, solidityPacked(["address", "address", "address"], [aggregator, base, quote])],
 			),
-		"0x"
+		"0x",
 	);
 
 	process.stdout.write(data);
