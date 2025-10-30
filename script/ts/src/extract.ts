@@ -136,7 +136,7 @@ const main = async (): Promise<void> => {
 const processDeployment = async (
 	{ chain: chainId, commit, timestamp, transactions }: Deployment,
 	rpcUrl: string,
-	forceFlag: boolean
+	forceFlag: boolean,
 ): Promise<DeploymentRecord | undefined> => {
 	const path = join(DEPLOYMENTS, "json", `${chainId}.json`);
 
@@ -171,7 +171,7 @@ const processDeployment = async (
 			(
 				acc: Array<Omit<ContractInfo, "commit" | "timestamp"> & { contractName: string; input: ContractInput }>,
 				{ arguments: constructorArguments, contractAddress, contractName, hash },
-				idx
+				idx,
 			) => {
 				if (contractName === "ForgeProxy" || contractName === "TransparentUpgradeableProxy") {
 					console.warn(`\nSkipping unexpected proxy: ${contractName} (${contractAddress})\n`);
@@ -226,7 +226,7 @@ const processDeployment = async (
 							(tx) =>
 								(tx.contractName === "ForgeProxy" ||
 									tx.contractName === "TransparentUpgradeableProxy") &&
-								getChecksumAddress(tx.arguments[0]) === contractAddress
+								getChecksumAddress(tx.arguments[0]) === contractAddress,
 						);
 
 					// CASE: new upgradeable contract
@@ -279,12 +279,12 @@ const processDeployment = async (
 					input: { constructor: parseConstructorInputs(contractName, constructorArguments) },
 				});
 			},
-			[]
+			[],
 		)
 		.sort((a, b) => (a.contractName.toLowerCase() < b.contractName.toLowerCase() ? -1 : 1))
 		.reduce(
 			(acc, { contractName, ...rest }) => ({ ...acc, [contractName]: rest }),
-			{} as DeploymentHistory["contracts"]
+			{} as DeploymentHistory["contracts"],
 		);
 
 	if (!Object.keys(contracts).length) {
@@ -363,7 +363,7 @@ const renderTableOfContents = (contracts: DeploymentRecord["latest"], history: D
 	content += history
 		.map(
 			({ timestamp }) =>
-				`[${format(timestamp, "timestamp-long")}](#${format(format(timestamp, "timestamp-long"), "link")})`
+				`[${format(timestamp, "timestamp-long")}](#${format(format(timestamp, "timestamp-long"), "link")})`,
 		)
 		.join("\n\t-\t");
 
@@ -386,7 +386,7 @@ const renderDeploymentSummary = (contracts: DeploymentRecord["latest"], explorer
 					{ tag: "td", content: renderElement({ tag: "code", content: format(version, "version") }) },
 				],
 			]),
-		[headers]
+		[headers],
 	);
 
 	return renderTable({ rows });
@@ -398,15 +398,15 @@ const renderDeploymentDetails = (contracts: DeploymentRecord["latest"], explorer
 			([contractName, contract]) =>
 				`### ${format(contractName, "display")!}\n${renderDeploymentDetail(
 					contract,
-					explorerUrl
-				)}${renderImplementationHistory(contract, explorerUrl)}`
+					explorerUrl,
+				)}${renderImplementationHistory(contract, explorerUrl)}`,
 		)
 		.join("\n\n---\n\n");
 };
 
 const renderDeploymentDetail = (
 	{ address, commit, hash, implementation, proxyAdmin, timestamp, version }: ContractInfo,
-	explorerUrl: string
+	explorerUrl: string,
 ) => {
 	const rows: Array<Array<HTMLParameters>> = [];
 
@@ -416,7 +416,7 @@ const renderDeploymentDetail = (
 			tag: "td",
 			content: renderAnchor(
 				PROJECT_URL.concat(`/commit/${commit}`),
-				renderElement({ tag: "code", content: commit })
+				renderElement({ tag: "code", content: commit }),
 			),
 		},
 	]);
@@ -492,7 +492,7 @@ const renderImplementationHistory = ({ commit, hash, implementation, version }: 
 					tag: "td",
 					content: renderAnchor(
 						`${PROJECT_URL}/commit/${commit}`,
-						renderElement({ tag: "code", content: commit })
+						renderElement({ tag: "code", content: commit }),
 					),
 				},
 				{
@@ -515,15 +515,15 @@ const renderDeploymentHistory = (history: DeploymentRecord["history"], explorerU
 						([contractName, contract]) =>
 							`\n<details>\n<summary>${renderAnchor(
 								getContractPath(contractName),
-								contractName
+								contractName,
 							)}</summary>${renderDeploymentDetail(
 								{ commit, timestamp, ...contract },
-								explorerUrl
-							)}\n</details>`
+								explorerUrl,
+							)}\n</details>`,
 					)
-					.join("\n")}`
+					.join("\n")}`,
 			),
-		""
+		"",
 	);
 };
 
@@ -541,7 +541,7 @@ const renderElement = ({
 			!!attributes
 				? Object.entries(attributes).reduce((acc, [key, value]) => acc.concat(formatAttribute(key, value)), " ")
 				: "",
-			!!content ? `>${content}</${tag}>` : " />"
+			!!content ? `>${content}</${tag}>` : " />",
 		)
 		.trim()}`;
 };
@@ -580,7 +580,7 @@ const renderTable = ({
 
 	content += rows.reduce(
 		(acc, row) => acc.concat(`\n\t<tr>\n\t\t${row.map(renderElement).join("\n\t\t")}\n\t</tr>`),
-		""
+		"",
 	);
 
 	return `\n<table>${content}\n</table>`;
@@ -631,7 +631,7 @@ const processProperties = <T extends Record<string, any>>(properties: T): Strict
 			value !== null && value !== undefined
 				? { ...acc, [key]: !!isAddress(value) ? getChecksumAddress(value)! : value }
 				: acc,
-		{} as Strict<T>
+		{} as Strict<T>,
 	);
 };
 

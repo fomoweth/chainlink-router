@@ -7,7 +7,7 @@ import { Chain, ContractArtifact } from "../types";
 
 export const format = (
 	value: any,
-	option: "argument" | "contract" | "display" | "link" | "timestamp-long" | "timestamp-short" | "version"
+	option: "argument" | "contract" | "display" | "link" | "timestamp-long" | "timestamp-short" | "version",
 ): string | undefined => {
 	if (typeof value === "number" || typeof value === "bigint") value = value.toString();
 	if (!value || typeof value !== "string") return;
@@ -71,7 +71,7 @@ export const getContractABI = (contractName: string): ContractArtifact["abi"] =>
 
 export const getContractPath = (
 	contractName: string,
-	option: { baseDir: string; maxDepth: number } = { baseDir: "src", maxDepth: 5 }
+	option: { baseDir: string; maxDepth: number } = { baseDir: "src", maxDepth: 5 },
 ): string => {
 	if (contractName === "ForgeProxy" || contractName === "ForgeProxyAdmin") {
 		return execSync("git remote get-url origin | cut -d '/' -f 1-4", { encoding: "utf-8" })
@@ -95,7 +95,7 @@ export const getContractPath = (
 					if (!!path) return path;
 				}
 			}
-		} catch (error) {
+		} catch (e) {
 			// Directory not accessible, skip
 		}
 	};
@@ -118,7 +118,7 @@ export const getProxyAdmin = (proxy: string, rpcUrl: string): string | undefined
 			`cast storage ${proxy} ${ERC1967_ADMIN_SLOT} --rpc-url ${rpcUrl} | cast parse-bytes32-address`,
 			{
 				encoding: "utf-8",
-			}
+			},
 		)
 			.trim()
 			.replaceAll('"', "");
@@ -129,7 +129,7 @@ export const getProxyImplementation = (proxy: string, rpcUrl: string): string | 
 	try {
 		return execSync(
 			`cast storage ${proxy} ${ERC1967_IMPLEMENTATION_SLOT} --rpc-url ${rpcUrl} | cast parse-bytes32-address`,
-			{ encoding: "utf-8" }
+			{ encoding: "utf-8" },
 		)
 			.trim()
 			.replaceAll('"', "");
@@ -147,7 +147,7 @@ export const getRevision = (address: string, rpcUrl: string): string | undefined
 export const getProjectName = (): string => {
 	return format(
 		execSync("git remote get-url origin | cut -d '/' -f 5 | cut -d '.' -f 1", { encoding: "utf-8" }).trim(),
-		"display"
+		"display",
 	)!;
 };
 

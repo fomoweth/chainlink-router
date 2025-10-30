@@ -8,7 +8,7 @@ const main = async () => {
 	const argument = process.argv[2];
 
 	const chain = CHAINS.find(({ chainAlias, chainId }) =>
-		!!isNaN(+argument) ? chainAlias === argument : chainId === +argument
+		!!isNaN(+argument) ? chainAlias === argument : chainId === +argument,
 	);
 
 	if (!chain) {
